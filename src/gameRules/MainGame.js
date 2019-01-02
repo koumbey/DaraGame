@@ -53,8 +53,6 @@ export default class MainGame {
         let state1 = this.player1.jetonType;
         let state2 = this.player2.jetonType;
         let tour = this.player1.IsWinner;
-        console.log("P1 =" + tour);
-        console.log( "P2 =" +this.player2.IsWinner);
         this.player1.prepareNextPart(state2);
         this.player2.prepareNextPart(state1);
         this.player1.setTour(tour);
@@ -107,7 +105,7 @@ export default class MainGame {
         let to = dropInfo.pos;
         let from = dragInfo.pos;
         let player = this.getWhoPlay(dragInfo.type);
-        if(player && dragInfo.from === "out"){
+        if(player && dragInfo.from === "out" && dropInfo.from === "in"){
             result = player.putJetonInGame(from, to);
         }
         return result;
@@ -143,4 +141,12 @@ export default class MainGame {
             this.moveJeton(dragInfo, dropInfo);
         }
     };
+
+    IsChangePossible(dragInfo, dropPos){
+        if(this.isFirstStep){
+            return this.grid.cellArray[dropPos].verifyPlacementRule(dragInfo.type);
+        }else{
+            return this.grid.cellArray[dropPos].verifyDeplacementRule(dragInfo.pos);
+        }
+    }
 }

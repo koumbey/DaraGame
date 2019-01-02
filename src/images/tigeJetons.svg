@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
         <polygon fill="green" points="0,300 300,0 400,100 100,400" />
-        <ellipse cx="283" cy="-205" rx="71" ry="32" transform="rotate(45)" fill="blue"/>
+        <ellipse cx="283" cy="-205" rx="71" ry="32" transform="rotate(45)" fill="green"/>
         <ellipse cx="283" cy="-205" rx="61" ry="22" transform="rotate(45)" fill="white"/>
-        <ellipse cx="283" cy="-205" rx="41" ry="12" transform="rotate(45)" fill="green"/>
-        <path d="M0 300 Q0 400 100 400" fill="green"></path>
+        <path d="M0 300 Q0 400 100 400" fill="green"/>
     </svg>
 </svg>

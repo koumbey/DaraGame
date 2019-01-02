@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-    <circle cx="200" cy="200" r="200" fill="red"/>
-    <circle cx="200" cy="200" r="150" fill="white"/>
-    <circle cx="200" cy="200" r="100" fill="blue"/>
+    <defs>
+        <radialGradient id="exampleGradient">
+            <stop offset="5%" stop-color="gray"/>
+            <stop offset="100%" stop-color="black"/>
+        </radialGradient>
+    </defs>
+    <circle cx="200" cy="200" r="200" fill="url(#exampleGradient)"/>
 </svg>

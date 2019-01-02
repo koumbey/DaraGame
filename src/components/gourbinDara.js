@@ -10,26 +10,64 @@ const cellTypeLogo={
 };
 
 class GourbinDara extends React.Component{
-    constructor(props){
-        super(props);
-       this.allDrop = this.allDrop.bind(this);
-    }
+
 
     static propTypes ={
         jetonId: Proptypes.string.isRequired,
         jetonType: Proptypes.oneOf(Object.values(Cell.ValueEnum)).isRequired,
         onDragStart: Proptypes.func,
-        onDrop: Proptypes.func
+        onDrop: Proptypes.func,
+        onMouseEnter: Proptypes.func,
+        stateClassName :Proptypes.string
     };
 
-    allDrop(event){
+    static defaultProps = {
+        stateClassName: "normal-state"
+    };
+
+    constructor(){
+        super();
+        this.state = {
+            stateClassName: "normal-state"
+        };
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.onDragLeave = this.onDragLeave.bind(this);
+        this.handleDrop = this.handleDrop.bind(this);
+    }
+
+    handleMouseEnter(event){
         event.preventDefault();
+        let cellInfo = this.props.jetonId.split("-");
+        if(typeof this.props.onMouseEnter === "function"){
+            let styleClass = this.props.onMouseEnter(parseInt(cellInfo[2],10));
+            if(styleClass && styleClass.change) {
+                this.setState({stateClassName: styleClass.className});
+            }
+        }
+    }
+
+    handleDrop(event){
+        event.preventDefault();
+        if(typeof this.props.onDrop === "function"){
+            this.props.onDrop(event);
+            this.setState({stateClassName: "normal-state"})
+        }
+    }
+
+    onDragLeave(event){
+        event.preventDefault();
+        this.setState({stateClassName: "normal-state"});
     }
 
     render(){
         let Logo = cellTypeLogo[this.props.jetonType];
         return (
-            <div id={this.props.jetonId+"-container"} style={{width:"100px", height:"100px", border:"3px solid"}} onDrop={this.props.onDrop} onDragOver={this.allDrop}>
+            <div id={this.props.jetonId+"-container"}
+                 className={this.state.stateClassName}
+                 onDrop={this.handleDrop}
+                 onDragOver={this.handleMouseEnter}
+                 onDragLeave={this.onDragLeave}
+            >
                 {Logo &&
                 <img
                     id={this.props.jetonId}

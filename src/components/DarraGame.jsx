@@ -13,12 +13,13 @@ class DarraGame extends React.Component{
         this.onDragStart = this.onDragStart.bind(this);
         this.onDrop = this.onDrop.bind(this);
         this.afterComputerPlayed = this.afterComputerPlayed.bind(this);
+        this.onMouseEnter = this.onMouseEnter.bind(this);
         let player1 = {jeton : Cell.ValueEnum.PIERRE, name: this.props.firstPlayer.playerName, start: this.props.firstPlayer.start};
         let player2 = {jeton : Cell.ValueEnum.TIGE,  name: this.props.secondPlayer.playerName, start: this.props.secondPlayer.start};
         //let player2 = {jeton : Cell.ValueEnum.TIGE,  type: MainGame.PlayerType.COMPUTER, start: this.props.secondPlayer.start};
 
         this.gameInfo = new MainGame(player1, player2);
-        this.drapInfo = {};
+        this.drapInfo = {IsEmpty: true};
         this.state = this.gameInfo.getGameStates();
     }
 
@@ -58,15 +59,26 @@ class DarraGame extends React.Component{
         this.setState(updateState);
     }
 
+    onMouseEnter(pos){
+        if(this.dragInfo && !(this.dragInfo.IsEmpty)) {
+            if (this.gameInfo.IsChangePossible(this.dragInfo, pos)) {
+                return {change: true, className: "allowed"}
+            } else {
+                return {change: true, className: "not-allowed"}
+            }
+        }
+        return {change: false};
+
+    }
     onDragStart(event){
         event.preventDefault();
         if(event && event.target && event.target.id) {
             this.dragInfo = DarraGame.getDragDropInfo(event.target.id);
+            this.dragInfo.IsEmpty = false;
         }
     }
 
     onDrop(event){
-        event.preventDefault();
         if(event && event.target && event.target.id) {
             let dropInfo = DarraGame.getDragDropInfo(event.target.id);
             this.gameInfo.playGame(this.dragInfo, dropInfo);
@@ -78,7 +90,7 @@ class DarraGame extends React.Component{
             this.gameInfo.initialiseGameInfo();
     }
         let updateState = this.gameInfo.getGameStates();
-        this.dragInfo = {};
+        this.dragInfo = {IsEmpty: true};
         this.setState(updateState);
     }
 
@@ -100,6 +112,7 @@ class DarraGame extends React.Component{
                         cellsState={this.state.gridStates}
                         onDrop={this.onDrop}
                         onDragStart={this.onDragStart}
+                        onMouseEnter={this.onMouseEnter}
                         gameInfos={{
                             playerTour:this.state.playerTour,
                             winJeton:this.state.winJeton
