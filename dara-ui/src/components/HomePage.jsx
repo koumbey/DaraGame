@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import logo  from "../images/haussaLogo.svg"
 import DarraGame from "./DarraGame";
+import PlayerView from "./PlayerView";
 
 
 class HomePage extends React.Component{
@@ -31,7 +32,11 @@ class HomePage extends React.Component{
                     </div>
                 </div>
             </AppBar>
-            <DarraGame/>
+            <div className="row">
+                <div className="col-md-3"> <PlayerView/></div>
+                <div className="col-md-6"></div>
+                <div className="col-md-3"> <PlayerView/></div>
+            </div>
         </div>;
     }
 }

@@ -31,7 +31,7 @@ class GourabounDara extends React.Component{
                 return(<tr key={idx}>
                     {row.map(function (item, idy) {
                         let id = 'in-'+item.state+"-"+item.pos;
-                        return(<td key={idy}>
+                        return(<td key={idy} style={{border: "3px solid"}}>
                             <GourbinDara
                                 jetonType={item.state}
                                 jetonId={id}

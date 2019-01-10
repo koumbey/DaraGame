@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+        <radialGradient id="exampleGradient">
+            <stop offset="10%" stop-color="black"/>
+            <stop offset="95%" stop-color="gray"/>
+        </radialGradient>
+    </defs>
+    <circle cx="200" cy="200" r="200" fill="url(#exampleGradient)" stroke-width="5" stroke="black"/>
+</svg>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/DaraGame.iml" filepath="$PROJECT_DIR$/.idea/DaraGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dara-backend.iml" filepath="$PROJECT_DIR$/dara-backend.iml" />
     </modules>
   </component>
 </project>
