@@ -14,34 +14,38 @@ class DarraGame extends React.Component{
         this.onDrop = this.onDrop.bind(this);
         this.afterComputerPlayed = this.afterComputerPlayed.bind(this);
         this.onMouseEnter = this.onMouseEnter.bind(this);
-        let player1 = {jeton : Cell.ValueEnum.PIERRE, name: this.props.firstPlayer.playerName, start: this.props.firstPlayer.start};
-        let player2 = {jeton : Cell.ValueEnum.TIGE,  name: this.props.secondPlayer.playerName, start: this.props.secondPlayer.start};
-        //let player2 = {jeton : Cell.ValueEnum.TIGE,  type: MainGame.PlayerType.COMPUTER, start: this.props.secondPlayer.start};
-
-        this.gameInfo = new MainGame(player1, player2);
+        this.gameInfo = new MainGame(this.props.player, this.props.opponent);
         this.drapInfo = {IsEmpty: true};
         this.state = this.gameInfo.getGameStates();
     }
 
     static propTypes={
-        firstPlayer: Proptypes.shape({
-            playerName: Proptypes.string,
-            start: Proptypes.bool
+        player: Proptypes.shape({
+            name: Proptypes.string,
+            start: Proptypes.bool,
+            jeton : Proptypes.string,
+            type: Proptypes.oneOf([MainGame.PlayerType.COMPUTER, MainGame.PlayerType.HUMAN])
         }),
-        secondPlayer: Proptypes.shape({
-            playerName: Proptypes.string,
-            start: Proptypes.bool
+        opponent: Proptypes.shape({
+            name: Proptypes.string,
+            start: Proptypes.bool,
+            jeton : Proptypes.string,
+            type: Proptypes.oneOf([MainGame.PlayerType.COMPUTER, MainGame.PlayerType.HUMAN])
         })
     };
 
     static defaultProps={
-        firstPlayer: {
-            playerName:"Issoufou",
-            start: true
+        player: {
+            name:"Issoufou",
+            start: true,
+            jeton: Cell.ValueEnum.PIERRE,
+            type:MainGame.PlayerType.HUMAN
         },
-        secondPlayer: {
-            playerName:"Kanta",
-            start: false
+        opponent: {
+            name:"Kanta",
+            start: false,
+            jeton: Cell.ValueEnum.TIGE,
+            type:MainGame.PlayerType.HUMAN
         }
     };
 
@@ -100,11 +104,11 @@ class DarraGame extends React.Component{
             <div className={"row"}>
                 <div className={"col-lg-3"} style={{marginTop:"10px", marginBottom:"10px"}}>
                     <DianDara
-                        cellsState={this.state[MainGame.playerId.FIRST_PLAYER]}
+                        cellsState={this.state[MainGame.playerId.PLAYER]}
                         onDrop={this.onDrop}
                         onDragStart={this.onDragStart}
-                        playerName={this.props.firstPlayer.playerName}
-                        playerPoint={this.state.point1}
+                        playerName={this.props.player.name}
+                        playerPoint={this.state.playerPoint}
                     />
                 </div>
                 <div className={"col-lg-6"} style={{marginTop:"10px", marginBottom:"10px"}}>
@@ -121,11 +125,11 @@ class DarraGame extends React.Component{
                 </div>
                 <div className={"col-lg-3"}  style={{marginTop:"10px", marginBottom:"10px"}}>
                     <DianDara
-                        cellsState={this.state[MainGame.playerId.SECOND_PLAYER]}
+                        cellsState={this.state[MainGame.playerId.OPPONENT]}
                         onDrop={this.onDrop}
                         onDragStart={this.onDragStart}
-                        playerName={this.props.secondPlayer.playerName}
-                        playerPoint={this.state.point2}
+                        playerName={this.props.opponent.name}
+                        playerPoint={this.state.opponentPoint}
                     />
                 </div>
             </div>

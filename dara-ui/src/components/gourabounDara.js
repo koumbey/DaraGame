@@ -49,7 +49,7 @@ class GourabounDara extends React.Component{
     }
     render(){
         return <div>
-            <div>
+            {this.props.gameInfos && ( <div>
                 <h5>Player Tour: {this.props.gameInfos.playerTour}</h5>
                 <div>
                     {this.props.gameInfos.winJeton
@@ -58,7 +58,7 @@ class GourabounDara extends React.Component{
                      </h5>
                     }
                 </div>
-            </div>
+            </div>)}
             {this.createTable()}
         </div>
     }

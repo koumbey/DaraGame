@@ -5,44 +5,44 @@ import IntelligentPlayer from "./IntelligentPlayer";
 
 export default class MainGame {
 
-    static playerId = {FIRST_PLAYER: "1", SECOND_PLAYER: "2"};
+    static playerId = {PLAYER: "1", OPPONENT: "2"};
 
     static PlayerType = {HUMAN: 1, COMPUTER:2};
 
-    constructor(player1, player2){
+    constructor(player, opponent){
         this.grid  = new Grid();
-        if(player1.type === MainGame.PlayerType.COMPUTER) {
-            this.player1 = new IntelligentPlayer(this, player1.jeton, MainGame.playerId.FIRST_PLAYER);
+        if(player.type === MainGame.PlayerType.COMPUTER) {
+            this.player = new IntelligentPlayer(this, player.jeton, MainGame.playerId.PLAYER);
         }else{
-            this.player1 = new GamePlayer(this.grid, MainGame.playerId.FIRST_PLAYER, player1.jeton, player1.name)
+            this.player = new GamePlayer(this.grid, MainGame.playerId.PLAYER, player.jeton, player.name)
         }
-        if(player2.type === MainGame.PlayerType.COMPUTER){
-            this.player2 = new IntelligentPlayer(this, player2.jeton, MainGame.playerId.SECOND_PLAYER);
+        if(opponent.type === MainGame.PlayerType.COMPUTER){
+            this.opponent = new IntelligentPlayer(this, opponent.jeton, MainGame.playerId.OPPONENT);
         }else {
-            this.player2 = new GamePlayer(this.grid, MainGame.playerId.SECOND_PLAYER, player2.jeton, player2.name);
+            this.opponent = new GamePlayer(this.grid, MainGame.playerId.OPPONENT, opponent.jeton, opponent.name);
         }
         this.isFirstStep = true;
         this.endPart = false;
-        this.player1.setOpponent(this.player2);
-        this.player1.setTour(player1.start);
-        this.player2.setTour(!player1.start);
-        this.player1.start();
-        this.player2.start();
+        this.player.setOpponent(this.opponent);
+        this.player.setTour(player.start);
+        this.opponent.setTour(!player.start);
+        this.player.start();
+        this.opponent.start();
     }
 
     getGameStates(){
         let result = {};
         result.gridStates = this.grid.getAllStates();
-        let playerInfo1 = this.player1.getPlayerInfo();
-        let playerInfo2 = this.player2.getPlayerInfo();
-        result = {...result, ...playerInfo1.states, ...playerInfo2.states};
-        if(this.player1.tour){
-            result = {...result, ...playerInfo1.gameInfos}
+        let playerInfo = this.player.getPlayerInfo();
+        let opponentInfo = this.opponent.getPlayerInfo();
+        result = {...result, ...playerInfo.states, ...opponentInfo.states};
+        if(this.player.tour){
+            result = {...result, ...playerInfo.gameInfos}
         }else{
-            result = {...result, ...playerInfo2.gameInfos}
+            result = {...result, ...opponentInfo.gameInfos}
         }
-        result.point1 = playerInfo1.states.playerPoint;
-        result.point2 = playerInfo2.states.playerPoint;
+        result.playerPoint = playerInfo.states.playerPoint;
+        result.opponentPoint = opponentInfo.states.playerPoint;
         return result;
     };
 
@@ -50,23 +50,23 @@ export default class MainGame {
         this.isFirstStep = true;
         this.endPart = false;
         // exchange jeton
-        let state1 = this.player1.jetonType;
-        let state2 = this.player2.jetonType;
-        let tour = this.player1.IsWinner;
-        this.player1.prepareNextPart(state2);
-        this.player2.prepareNextPart(state1);
-        this.player1.setTour(tour);
-        this.player2.setTour(!tour);
+        let state1 = this.player.jetonType;
+        let state2 = this.opponent.jetonType;
+        let tour = this.player.IsWinner;
+        this.player.prepareNextPart(state2);
+        this.opponent.prepareNextPart(state1);
+        this.player.setTour(tour);
+        this.opponent.setTour(!tour);
 
         this.grid.clearGrid();
     };
 
     getWhoPlay(state){
-        if(this.player1.tour && this.player1.isJeton(state)){
-            return this.player1
+        if(this.player.tour && this.player.isJeton(state)){
+            return this.player
         }
-        else if(this.player2.tour && this.player2.isJeton(state)){
-            return this.player2
+        else if(this.opponent.tour && this.opponent.isJeton(state)){
+            return this.opponent;
         }else{
             return null;
         }
@@ -74,20 +74,20 @@ export default class MainGame {
 
     getWinner(){
         if(this.isPartEnded()){
-            if (this.player1.IsWinner){
-                return this.player1;
+            if (this.player.IsWinner){
+                return this.player;
             }else{
-                return this.player2;
+                return this.opponent;
             }
         }
     };
 
     getJetonWinner(){
-        if(this.player1.hasEarnJeton){
-            return this.player1;
+        if(this.player.hasEarnJeton){
+            return this.player;
         }
-        else if(this.player2.hasEarnJeton){
-            return this.player2;
+        else if(this.opponent.hasEarnJeton){
+            return this.opponent;
         }else{
             return null;
         }
@@ -95,7 +95,7 @@ export default class MainGame {
 
     isPartEnded(){
         if(!this.isFirstStep) {
-            return (this.player1.IsWinner || this.player2.IsWinner);
+            return (this.player.IsWinner || this.opponent.IsWinner);
         }
         return false;
     };
