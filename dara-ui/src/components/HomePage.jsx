@@ -8,6 +8,7 @@ import Create from "@material-ui/icons/Create"
 import Button from '@material-ui/core/Button';
 import {GourabounDara} from "./gourabounDara";
 import Grid from "../gameRules/Grid";
+import LoginPopup from "../popups/LoginPopup";
 
 
 class HomePage extends React.Component{
@@ -22,7 +23,6 @@ class HomePage extends React.Component{
                         <img src={logo} className="App-logo" alt="logo"/>
                         <img src={logo} className="App-logo" alt="logo"/>
                         <img src={logo} className="App-logo" alt="logo"/>
-
                     </div>
                     <div className="col-lg-4">
                             <span  style={{fontSize: "40px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}>
@@ -30,7 +30,8 @@ class HomePage extends React.Component{
                         </span>
                     </div>
                     <div className="col-lg-4">
-                        <Button style={{color:"white",fontSize: "20px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}>
+                        <Button style={{color:"white",fontSize: "20px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}
+                        onClick={LoginPopup.show}>
                             <AccountCircle style={{fontSize:"40px"}}/> Shigadda kanka
                         </Button>
                         <Button style={{color:"white",fontSize: "20px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}>
@@ -50,7 +51,7 @@ class HomePage extends React.Component{
                     ɗumki, ko kuma abubuwa makamanta.
                     Gidajan dara gurabu talatin ne (30) a care, layi biyar har so shida (5x6).
                 </p>
-                <p> A cikin wanan wasa na na-ura mai ƙwaƙwalwa ko waya zamani, Ana anfami da
+                <div> A cikin wanan wasa na na-ura mai ƙwaƙwalwa ko waya zamani, Ana anfami da
                     duwacuna babbaƙu kamar haka : <br/>
                     <div style={{textAlign: "center"}}>
                         <img src={pierre} alt="duci" style={{height: "100px", width: "100px"}}/> <br/>
@@ -60,15 +61,14 @@ class HomePage extends React.Component{
                     <div  style={{textAlign: "center"}}>
                         <img src={tige} alt="korkwaro" style={{height: "100px", width: "100px"}}/>
                     </div>
-                </p>
-                <p>
+                </div>
+                <div>
                     Gurabu dara kuma mu anfani da griyaji mai gida talatin (30) kamar haka:
                     <div style={{textAlign: "center", marginLeft: "250px", marginTop: "10px"}}>
                         <GourabounDara cellsState={cellState}/>
                     </div>
-                </p>
+                </div>
                 <h1 style={{textAlign: "center"}}>Sharuɗɗan Wasa</h1>
-                <p></p>
             </div>
 
         </div>;
