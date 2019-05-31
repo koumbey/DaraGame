@@ -1,5 +1,5 @@
 import React from 'react'
-import {GourbinDara} from "./gourbinDara";
+import {GourbinDara} from "./GourbinDara";
 import Proptypes from 'prop-types'
 
 
@@ -38,7 +38,7 @@ class GourabounDara extends React.Component{
                                 onDragStart={onDrag}
                                 onDrop={onDrop}
                                 onMouseEnter={func}
-                                stateClassName={item.className}
+                                stateClassName={"in-game"}
                             />
                         </td>)
                     })}

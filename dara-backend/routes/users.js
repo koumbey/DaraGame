@@ -11,8 +11,8 @@ const pusher = new Pusher(config.PUSHER_CONFIG);
 var ConnectedUsers = {"Computer A.I" : {Pseudo: "Computer A.I"}};
 
 router.get("/authenticate", (req, res) =>{
-    if (!req.headers.authorization || req.headers.authorization.indexOf('Basic ') === -1) {
-      return res.status(401).json({ message: 'Missing Authorization Header' });
+    if (!req.headers.authorization || !req.headers.authorization.startsWith('Basic ')) {
+      return res.status(401).send({ message: 'Missing Authorization Header' });
     }
     const base64Credentials =  req.headers.authorization.split(' ')[1];
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
@@ -23,7 +23,9 @@ router.get("/authenticate", (req, res) =>{
             ConnectedUsers[rep.Pseudo] = {Pseudo : rep.Pseudo};
             res.send(rep)
         })
-        .catch(err => res.status(401).json(err));
+        .catch(err => {
+            res.status(401).send({error:err, message : "login or password is incorrect"})
+        });
   });
 
 

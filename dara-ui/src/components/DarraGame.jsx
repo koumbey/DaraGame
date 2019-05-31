@@ -1,10 +1,15 @@
 import React from 'react';
 import Proptypes from 'prop-types'
-import {DianDara} from "./dianDara";
-import {GourabounDara} from "./gourabounDara";
+import {DianDara} from "./DianDara";
+import {GourabounDara} from "./GourabounDara";
 import Popup from 'react-popup';
 import Cell from "../gameRules/Cell";
 import MainGame from "../gameRules/MainGame";
+import AppBar from "@material-ui/core/AppBar";
+import logo from "../images/haussaLogo.svg";
+import Button from "@material-ui/core/Button";
+import LoginPopup from "../popups/LoginPopup";
+import AccountCircle from "@material-ui/icons/AccountCircle"
 
 
 class DarraGame extends React.Component{
@@ -24,7 +29,8 @@ class DarraGame extends React.Component{
             name: Proptypes.string,
             start: Proptypes.bool,
             jeton : Proptypes.string,
-            type: Proptypes.oneOf([MainGame.PlayerType.COMPUTER, MainGame.PlayerType.HUMAN])
+            type: Proptypes.oneOf([MainGame.PlayerType.COMPUTER, MainGame.PlayerType.HUMAN]),
+            score: Proptypes.string
         }),
         opponent: Proptypes.shape({
             name: Proptypes.string,
@@ -100,40 +106,66 @@ class DarraGame extends React.Component{
 
 
     render(){
-     return (<div className={"container"} style={{width:"85%",height: "800px" ,marginTop:"10px", border:"15px", borderStyle:"groove groove groove groove"}}>
-            <div className={"row"}>
-                <div className={"col-lg-3"} style={{marginTop:"10px", marginBottom:"10px"}}>
-                    <DianDara
-                        cellsState={this.state[MainGame.playerId.PLAYER]}
-                        onDrop={this.onDrop}
-                        onDragStart={this.onDragStart}
-                        playerName={this.props.player.name}
-                        playerPoint={this.state.playerPoint}
-                    />
-                </div>
-                <div className={"col-lg-6"} style={{marginTop:"10px", marginBottom:"10px"}}>
-                    <GourabounDara
-                        cellsState={this.state.gridStates}
-                        onDrop={this.onDrop}
-                        onDragStart={this.onDragStart}
-                        onMouseEnter={this.onMouseEnter}
-                        gameInfos={{
-                            playerTour:this.state.playerTour,
-                            winJeton:this.state.winJeton
-                        }}
-                    />
-                </div>
-                <div className={"col-lg-3"}  style={{marginTop:"10px", marginBottom:"10px"}}>
-                    <DianDara
-                        cellsState={this.state[MainGame.playerId.OPPONENT]}
-                        onDrop={this.onDrop}
-                        onDragStart={this.onDragStart}
-                        playerName={this.props.opponent.name}
-                        playerPoint={this.state.opponentPoint}
-                    />
+     return (
+         <div className="game-page">
+             <AppBar position="static" style={{backgroundColor: "green"}}>
+                 <div className="row">
+                     <div className="col-lg-4">
+                         <img src={logo} className="App-logo" alt="logo"/>
+                         <img src={logo} className="App-logo" alt="logo"/>
+                         <img src={logo} className="App-logo" alt="logo"/>
+                     </div>
+                     <div className="col-lg-4">
+                                <span  style={{fontSize: "40px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}>
+                                WASAN DARA HAUSAWA
+                            </span>
+                     </div>
+                     <div className="col-lg-4">
+                         <Button style={{color:"white",fontSize: "20px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}>
+                             <AccountCircle style={{fontSize:"40px"}}/> {this.props.player.name}
+                         </Button>
+                         <Button style={{color:"white",fontSize: "20px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}
+                                 onClick={LoginPopup.show}>
+                             <AccountCircle style={{fontSize:"40px"}}/> Hutar dan kanka
+                         </Button>
+                     </div>
+                 </div>
+             </AppBar>
+             <div style={{marginRight: "50px", marginLeft: "50px"}}>
+                <div className={"row"}>
+                    <div className={"col-lg-4"} style={{marginTop:"10px", marginBottom:"10px"}}>
+                        <DianDara
+                            cellsState={this.state[MainGame.playerId.PLAYER]}
+                            onDrop={this.onDrop}
+                            onDragStart={this.onDragStart}
+                            playerName={this.props.player.name}
+                            playerPoint={this.state.playerPoint}
+                        />
+                    </div>
+                    <div className={"col-lg-4"} style={{marginTop:"10px", marginBottom:"10px"}}>
+                        <GourabounDara
+                            cellsState={this.state.gridStates}
+                            onDrop={this.onDrop}
+                            onDragStart={this.onDragStart}
+                            onMouseEnter={this.onMouseEnter}
+                            gameInfos={{
+                                playerTour:this.state.playerTour,
+                                winJeton:this.state.winJeton
+                            }}
+                        />
+                    </div>
+                    <div className={"col-lg-4"}  style={{marginTop:"10px", marginBottom:"10px"}}>
+                        <DianDara
+                            cellsState={this.state[MainGame.playerId.OPPONENT]}
+                            onDrop={this.onDrop}
+                            onDragStart={this.onDragStart}
+                            playerName={this.props.opponent.name}
+                            playerPoint={this.state.opponentPoint}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>)
+         </div>)
     }
 
 }

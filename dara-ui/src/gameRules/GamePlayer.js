@@ -103,10 +103,20 @@ export default class GamePlayer {
     };
 
     getOutGameState(){
-        let res = new Array(6);
-        for(let i=0; i<Grid.RowNumber; i++){
-            let pos1= i*2, pos2 =  1 + (2*i);
-            res[i] = [{pos: pos1, state: this.playerJeton[pos1]}, {pos: pos2, state :this.playerJeton[pos2]}];
+        let res = new Array(4);
+        let numberRepartition = [1, 2, 2, 3, 4];
+        let numPos = 0, pos = 0;
+        for(let i=0; i<5; i++){
+            res[i] = [];
+            let nb = numberRepartition[i];
+            for (let j=0; j<4; j++) {
+                if (nb > 0) {
+                    res[i].push({pos:numPos, state:this.playerJeton[numPos]});
+                    numPos +=1;
+                    nb -=1;
+                }
+                pos += 1
+            }
         }
         return res;
     }

@@ -129,7 +129,6 @@ function GameGrid(){
                     let neighbords = cell.getNeighbords();
                     for (let ind=0; ind < neighbords.length; ind++){
                         let to = neighbords[ind];
-                        debugger;
                         let info = this.getMovementInfo(from, to);
                         if(info.move){
                             res.push({from: from, to:to});

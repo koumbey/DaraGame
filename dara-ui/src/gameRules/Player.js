@@ -8,26 +8,26 @@ function Player(id, jeton, name, isFirst=false){
         this.id = id;
         this.tour = isFirst;
         this.jeton = jeton;
-        this.playerJetons = new Array(6);
+        this.playerJetons = new Array(4);
         this.earnedJeton = {
             number: 0, winJeton: false
         };
         this.inGameJetons = 0;
-        for(let i=0; i<6; i++){
-            this.playerJetons[i] = [jeton, jeton];
+        for(let i=0; i<4; i++){
+            this.playerJetons[i] = [jeton, jeton, jeton];
         }
     }
 
     this.prepareNextPart = function(newJeton){
         this.tour = this.hasWonPart();
         this.jeton = newJeton;
-        this.playerJetons = new Array(6);
+        this.playerJetons = new Array(4);
         this.earnedJeton ={
             number: 0, winJeton: false
         };
         this.inGameJetons = 0;
-        for(let i=0; i<6; i++){
-            this.playerJetons[i] = [newJeton, newJeton];
+        for(let i=0; i<4; i++){
+            this.playerJetons[i] = [newJeton, newJeton, newJeton];
         }
     };
 

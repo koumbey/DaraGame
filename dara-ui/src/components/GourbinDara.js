@@ -18,17 +18,14 @@ class GourbinDara extends React.Component{
         onDragStart: Proptypes.func,
         onDrop: Proptypes.func,
         onMouseEnter: Proptypes.func,
-        stateClassName :Proptypes.string
+        stateClassName :Proptypes.string.isRequired
     };
 
-    static defaultProps = {
-        stateClassName: "normal-state"
-    };
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            stateClassName: "normal-state"
+            stateClassName: this.props.stateClassName
         };
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
         this.onDragLeave = this.onDragLeave.bind(this);
@@ -50,13 +47,13 @@ class GourbinDara extends React.Component{
         event.preventDefault();
         if(typeof this.props.onDrop === "function"){
             this.props.onDrop(event);
-            this.setState({stateClassName: "normal-state"})
+            this.setState({stateClassName: this.props.stateClassName})
         }
     }
 
     onDragLeave(event){
         event.preventDefault();
-        this.setState({stateClassName: "normal-state"});
+        this.setState({stateClassName: this.props.stateClassName});
     }
 
     render(){
@@ -81,6 +78,7 @@ class GourbinDara extends React.Component{
         );
     }
 }
+
 
 export {
     GourbinDara

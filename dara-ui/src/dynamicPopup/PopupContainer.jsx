@@ -15,11 +15,12 @@ const styles = {
         borderRadius: "5px",
         border: "1px solid #B8C8CC",
         overflow: "hidden",
-        zIndex: "1000"
+        zIndex: "10"
     }
 };
 
 export default class PopupContainer  extends React.Component{
+
     constructor(props){
         super(props);
         this.state = {
@@ -38,7 +39,7 @@ export default class PopupContainer  extends React.Component{
 
     show(popupInfos){
         if (!("height" in popupInfos.params)) {
-            popupInfos.params["height"] = 650
+            popupInfos.params["height"] = 480
         }
         if (!("width" in popupInfos.params)) {
             popupInfos.params["width"] = 650
@@ -56,21 +57,23 @@ export default class PopupContainer  extends React.Component{
     render() {
         if (this.state.params){
             let globalStyle = {...styles.box,
-                height: this.state.params.height + "px",
+                height: (this.state.params.height+140) + "px",
                 width: this.state.params.width + "px"
             };
-            let bodyHeight = (this.state.params.height - 100) + "px";
+            let bodyHeight = this.state.params.height + "px";
             return (
                 <div className="popup-container">
                     <div className="popup-box" style={globalStyle}>
                         <div className="popup-header" style={styles.header}>
                             <h2>{this.state.title}</h2>
                         </div>
-                        <div className="popup-body" style={{height:bodyHeight}}>
+                        <div className="popup-body" style={{height:bodyHeight, margin:"20px"}}>
                             {React.createElement(this.state.component, this.state.params, null)}
                         </div>
-                        <div className="popup-bottom" style={{height:"50px"}}>
-                            <Button color="secondary" onClick={this.close}>close</Button>
+                        <div className="popup-bottom" style={{height:"50px", margin:"20px"}}>
+                            <Button variant="contained" color="secondary" onClick={this.close}>
+                                Rufewa
+                            </Button>
                         </div>
                     </div>
                 </div>

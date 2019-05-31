@@ -5,14 +5,15 @@ export default (function() {
         Object.defineProperty(this, "store", {writable:false, value:{}});
         Object.defineProperty(this, "registrations", {writable:false, value:{}});
 
-        this.register = function (name, component, title, params) {
+        this.register = function (name, component, title, params, afterClose) {
             if (name && component) {
                 let popupTitle = title?title:name;
-                let popupParam =  params?params:{}
+                let popupParam = params?params:{};
                 this.registrations[name] = {
                     component: component,
                     title: popupTitle,
-                    params: popupParam
+                    params: popupParam,
+                    afterClose: afterClose
                 }
             }else{
                 throw new Error("A name and a valid React component class is required")
@@ -31,7 +32,12 @@ export default (function() {
 
         this.close = function (name) {
             if (name in this.registrations && this.showCallback){
-                this.closeCallback(this.getRegistration(name))
+                let registerInfo = this.getRegistration(name);
+                this.closeCallback(registerInfo);
+                if (typeof registerInfo.afterClose){
+                    registerInfo.afterClose()
+                }
+
             }
         };
 

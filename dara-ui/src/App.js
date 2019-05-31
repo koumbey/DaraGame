@@ -5,6 +5,7 @@ import PopupContainer from "./dynamicPopup/PopupContainer";
 import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
 import {blue} from "@material-ui/core/colors";
 
+
 const theme = createMuiTheme({
     palette: {primary: blue},
     typography: {useNextVariants: true}
@@ -24,4 +25,3 @@ class App extends Component {
 }
 
 export default App;
-
