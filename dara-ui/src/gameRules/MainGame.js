@@ -38,6 +38,10 @@ export default class MainGame {
         }
     }
 
+    getPlayerJeton(playerName) {
+        return (this.player.name === playerName) ? this.player.jetonType : this.opponent.jetonType;
+    }
+
     getGameStates(){
         let result = {};
         result.gridStates = this.grid.getAllStates();

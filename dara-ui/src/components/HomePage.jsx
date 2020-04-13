@@ -16,7 +16,6 @@ import MainGame from "../gameRules/MainGame";
 import {DianDara} from "./DianDara";
 import {ListItem} from "@material-ui/core";
 import Badge from "@material-ui/core/Badge";
-import Popup from "react-popup";
 import {DaraSocket} from "../server/DaraApi";
 
 
@@ -51,11 +50,11 @@ class HomePage extends React.Component{
         this.onDragStart = this.onDragStart.bind(this);
         this.onDrop = this.onDrop.bind(this);
         this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onPlayReceive = this.onPlayReceive.bind(this)
+        //this.onPlayReceive = this.onPlayReceive.bind(this)
     }
 
     componentDidMount() {
-        DaraSocket.subscribe("play", this.onPlayReceive)
+        DaraSocket.subscribe("play", this.onDrop)
     }
 
     showLogin() {
@@ -81,7 +80,7 @@ class HomePage extends React.Component{
         event.preventDefault();
         if(event && event.target && event.target.id) {
             let dragInfo = HomePage.getDragDropInfo(event.target.id);
-            if (dragInfo.type === this.state.player.jeton) {
+            if (dragInfo.type === this.state.player.jeton || this.gameInfo.player.hasEarnJeton) {
                 this.dragInfo =  dragInfo;
                 this.dragInfo.IsEmpty = false;
             }
@@ -89,23 +88,32 @@ class HomePage extends React.Component{
     }
 
     onDrop(event){
-        if(event && event.target && event.target.id && !this.dragInfo.IsEmpty) {
+        if(event && event.target && event.target.id && this.dragInfo && !this.dragInfo.IsEmpty) {
             let dropInfo = HomePage.getDragDropInfo(event.target.id);
             this.gameInfo.playGame(this.dragInfo, dropInfo);
             DaraSocket.send(JSON.stringify({to:this.state.opponent.name, action:[this.dragInfo, dropInfo], topic: "play"}))
 
-        }
-        if(this.gameInfo.isPartEnded()){
-            let winner = this.gameInfo.getWinner();
-            Popup.alert("Game ended. \nPlayer "+ winner.name + " win !!!");
-            this.gameInfo.initialiseGameInfo();
+        }else if (event && event.action){
+            let action = event.action;
+            this.gameInfo.playGame(action[0], action[1]);
         }
         let updateState = this.gameInfo.getGameStates();
+        if(this.gameInfo.isPartEnded()){
+            let winner = this.gameInfo.getWinner();
+            console.log("Game ended. \nPlayer "+ winner.name + " win !!!");
+            this.gameInfo.initialiseGameInfo();
+            let player =  this.state.player;
+            player.jeton =  this.gameInfo.getPlayerJeton(player.name);
+            let opponent =  this.state.opponent;
+            opponent.jeton =  this.gameInfo.getPlayerJeton(opponent.name);
+            updateState.player = player;
+            updateState.opponent = opponent;
+        }
         this.dragInfo = {IsEmpty: true};
         this.setState(updateState);
     }
 
-    onPlayReceive(data){
+    /*onPlayReceive(data){
         let action = data.action;
         this.gameInfo.playGame(action[0], action[1]);
         if(this.gameInfo.isPartEnded()){
@@ -114,9 +122,10 @@ class HomePage extends React.Component{
             this.gameInfo.initialiseGameInfo();
         }
         let updateState = this.gameInfo.getGameStates();
+
         this.dragInfo = {IsEmpty: true};
         this.setState(updateState);
-    }
+    }*/
 
 
     afterLogin(data){

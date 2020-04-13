@@ -55,16 +55,18 @@ export default class GamePlayer {
             let freeCell = this.grid.getMobileCellNumber(this.opponent.jetonType);
             let myFreeCell = this.grid.getMobileCellNumber(this.jetonType);
             this.IsStarted = ((myFreeCell !==0 && freeCell ===0) || (rateInfo.end && rateInfo.winner === this.jetonType));
+            this.IsWinner = this.IsStarted
+        }else {
+            this.IsWinner = true;
         }
-        this.IsWinner = true;
-        return this.IsStarted;
+        return this.IsWinner;
     }
 
 
     prepareNextPart(newType){
         this.jetonType = newType;
         this.hasEarnJeton  = false;
-        this.setTour(this.hasWonPart());
+        //this.setTour(this.hasWonPart());
         for(let i = 0; i < GamePlayer.jetonNumber; i++ ){
             this.playerJeton[i] = newType;
         }

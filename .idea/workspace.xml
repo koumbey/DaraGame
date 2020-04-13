@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef687020-f677-4710-ad5e-ad174dbc1a9a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/dara-ui/src/components/FindPlayer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93730e62-e79b-44d1-a155-af8021a9209d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/93730e62-e79b-44d1-a155-af8021a9209d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-backend/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-backend/database/UserDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/database/UserDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-backend/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/popups/LoginPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/popups/LoginPopup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/server/DaraApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/server/DaraApi.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -435,7 +424,7 @@
       <workItem from="1586071165426" duration="166000" />
       <workItem from="1586071678653" duration="207000" />
       <workItem from="1586071914924" duration="21568000" />
-      <workItem from="1586761279174" duration="12054000" />
+      <workItem from="1586761279174" duration="23758000" />
     </task>
     <servers />
   </component>
@@ -496,22 +485,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="200" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586071272508" />
-    <state width="1864" height="262" key="GridCell.Tab.0.bottom" timestamp="1586776049866">
+    <state width="1864" height="262" key="GridCell.Tab.0.bottom" timestamp="1586804377623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
-    <state width="1864" height="262" key="GridCell.Tab.0.center" timestamp="1586776049866">
+    <state width="1864" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
+    <state width="1864" height="262" key="GridCell.Tab.0.center" timestamp="1586804377623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
-    <state width="1864" height="262" key="GridCell.Tab.0.left" timestamp="1586776049866">
+    <state width="1864" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
+    <state width="1864" height="262" key="GridCell.Tab.0.left" timestamp="1586804377623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
-    <state width="1864" height="262" key="GridCell.Tab.0.right" timestamp="1586776049866">
+    <state width="1864" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
+    <state width="1864" height="262" key="GridCell.Tab.0.right" timestamp="1586804377623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
+    <state width="1864" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
     <state width="1864" height="326" key="GridCell.Tab.1.bottom" timestamp="1586731505896">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
