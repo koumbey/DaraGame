@@ -30,6 +30,14 @@ export default class MainGame {
         this.opponent.start();
     }
 
+    getPlayerIdAndPoint(playerName){
+        if (this.player.name === playerName){
+            return { id: this.player.id, point: this.player.point}
+        }else{
+            return { id: this.opponent.id, point: this.opponent.point}
+        }
+    }
+
     getGameStates(){
         let result = {};
         result.gridStates = this.grid.getAllStates();

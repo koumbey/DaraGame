@@ -1,5 +1,5 @@
 import Cell from "./Cell";
-import Grid from "./Grid";
+//import Grid from "./Grid";
 
 export default class GamePlayer {
 
@@ -105,7 +105,7 @@ export default class GamePlayer {
     getOutGameState(){
         let res = new Array(4);
         let numberRepartition = [1, 2, 2, 3, 4];
-        let numPos = 0, pos = 0;
+        let numPos = 0;
         for(let i=0; i<5; i++){
             res[i] = [];
             let nb = numberRepartition[i];
@@ -115,7 +115,6 @@ export default class GamePlayer {
                     numPos +=1;
                     nb -=1;
                 }
-                pos += 1
             }
         }
         return res;

@@ -2,28 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef687020-f677-4710-ad5e-ad174dbc1a9a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/dara-ui/src/components/DaraPlayerView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dara-ui/src/components/FindPlayer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93730e62-e79b-44d1-a155-af8021a9209d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/93730e62-e79b-44d1-a155-af8021a9209d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-backend/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-backend/database/UserDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/database/UserDB.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-backend/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-backend/routes/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/components/DarraGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/DarraGame.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/components/dianDara.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/DianDara.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/components/gourabounDara.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/GourabounDara.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/components/gourbinDara.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/GourbinDara.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/GameGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/GameGrid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/popups/LoginPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/popups/LoginPopup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/server/DaraApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/server/DaraApi.js" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,123 +50,21 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="UserDB.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="User: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupContainer.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupStore.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/Player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-backend/routes/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/popups/LoginPopup.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-backend/database/DataBaseManagement.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/components/DarraGame.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="164" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/components/DaraPlayerView.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dara-ui/src/components/DianDara.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1427">
-              <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="FavoritesManager">
+    <favorites_list name="DaraGame" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -182,187 +74,21 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>earnedJetons</find>
-      <find>earnedJetonNumber</find>
-      <find>setPosition</find>
-      <find>boxClass</find>
-      <find>endPart</find>
-      <find>playerTige</find>
-      <find>getFullCellNumber</find>
-      <find>isNeighbord</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/gameRules/Cell.js" />
-        <option value="$PROJECT_DIR$/src/gameRules/GamePlayer.js" />
-        <option value="$PROJECT_DIR$/src/gameRules/MainGame.js" />
-        <option value="$PROJECT_DIR$/public/main.css" />
-        <option value="$PROJECT_DIR$/src/gameRules/Grid.js" />
-        <option value="$PROJECT_DIR$/src/components/DarraGame.jsx" />
-        <option value="$PROJECT_DIR$/src/components/gourbinDara.js" />
-        <option value="$PROJECT_DIR$/src/images/pierreJeton.svg" />
-        <option value="$PROJECT_DIR$/src/images/tigeJetons.svg" />
-        <option value="$PROJECT_DIR$/src/images/boule.svg" />
-        <option value="$PROJECT_DIR$/src/components/gourabounDara.js" />
-        <option value="$PROJECT_DIR$/src/components/HomePage.jsx" />
-        <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/components/PlayerView.jsx" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/servers/database/UserDB.db" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b3197173-e811-4983-a31a-c90f25531a13/console.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e02f1f54-959b-4321-946b-fe8959483ce7/console.sql" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/servers/database/DataBaseManagement.js" />
-        <option value="$PROJECT_DIR$/servers/server.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/dara-backend/config/config.js" />
-        <option value="$PROJECT_DIR$/dara-backend/bin/www" />
-        <option value="$PROJECT_DIR$/dara-backend/app.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js" />
-        <option value="$PROJECT_DIR$/dara-ui/public/env.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/server/DaraApi.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/index.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/components/gourabounDara.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/dynamic-popup/PopupRegister.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/dynamic-popup/PopupHandler.jsx" />
-        <option value="$PROJECT_DIR$/dara-ui/src/dynamic-popup/PopupContainer.jsx" />
-        <option value="$PROJECT_DIR$/dara-ui/src/dynamic-popup/PopupStore.js" />
-        <option value="$PROJECT_DIR$/dara-ui/public/manifest.json" />
-        <option value="$PROJECT_DIR$/dara-ui/public/index.html" />
-        <option value="$PROJECT_DIR$/dara-backend/routes/users.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/components/DaraPlayerView.jsx" />
-        <option value="$PROJECT_DIR$/dara-ui/src/components/DarraGame.jsx" />
-        <option value="$PROJECT_DIR$/dara-ui/src/components/GourabounDara.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/components/GourbinDara.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/gameRules/GameGrid.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/gameRules/Player.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/App.css" />
-        <option value="$PROJECT_DIR$/dara-ui/src/components/DianDara.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/App.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupContainer.jsx" />
-        <option value="$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupStore.js" />
-        <option value="$PROJECT_DIR$/dara-ui/src/popups/LoginPopup.jsx" />
-        <option value="$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx" />
-      </list>
-    </option>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-24" />
-    <option name="y" value="140" />
-    <option name="width" value="1920" />
-    <option name="height" value="1040" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dynamicPopup" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gameRules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="popups" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DaraGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DaraGame" type="462c0819:PsiDirectoryNode" />
-              <item name="dara-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1S9GzgbZ0PMkHQ2rahNa8mOEggi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="Project Production Files" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -372,8 +98,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
@@ -384,28 +113,23 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\Desktop\Projet\DaraGame\dara-ui\src\components" />
+      <recent name="H:\Desktop\Projet\DaraGame\servers" />
+      <recent name="H:\Desktop\TDD\reactReduxApp\src\gameRules" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\Desktop\Projet\DaraGame\dara-ui\public" />
       <recent name="H:\Desktop\TDD\reactReduxApp\src\images" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="H:\Desktop\Projet\DaraGame\servers" />
-      <recent name="H:\Desktop\TDD\reactReduxApp\src\gameRules" />
-    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="npm.Run-UI">
+  <component name="RunManager" selected="Node.js.Run-Server">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <module name="react-redux" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -467,12 +191,6 @@
       <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -562,22 +280,27 @@
       <envs />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Jest.Game Grid should.return vertical movement info" />
-      <item itemvalue="Jest.Game Grid should.return number of neighbord with the same state" />
-      <item itemvalue="Jest.Computer player should.should return" />
-      <item itemvalue="Jest.Grid should.have cell with the rigth neighbord" />
-      <item itemvalue="Node.js.Run-Server" />
-      <item itemvalue="npm.Run-UI" />
-    </list>
-    <recent_temporary>
+  </component>
+  <component name="SQLPlugin.ProjectConfiguration">
+    <queries />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <item itemvalue="Jest.Grid should.have cell with the rigth neighbord" />
-        <item itemvalue="Jest.Computer player should.should return" />
-        <item itemvalue="Jest.Game Grid should.return number of neighbord with the same state" />
-        <item itemvalue="Jest.Game Grid should.return vertical movement info" />
+        <serviceView>
+          <option name="contentProportion" value="0.6332786" />
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="UserDB.db: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
       </list>
-    </recent_temporary>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -695,6 +418,24 @@
       <workItem from="1558786140175" duration="326000" />
       <workItem from="1558989222111" duration="149000" />
       <workItem from="1559219259155" duration="31523000" />
+      <workItem from="1559327783032" duration="1561000" />
+      <workItem from="1559472169540" duration="3704000" />
+      <workItem from="1567806636448" duration="597000" />
+      <workItem from="1569010438297" duration="594000" />
+      <workItem from="1570969360400" duration="7000" />
+      <workItem from="1570970591620" duration="3171000" />
+      <workItem from="1582374096029" duration="904000" />
+      <workItem from="1582577921854" duration="2629000" />
+      <workItem from="1582659240555" duration="3686000" />
+      <workItem from="1583956382338" duration="873000" />
+      <workItem from="1584222229806" duration="1065000" />
+      <workItem from="1585416126416" duration="1668000" />
+      <workItem from="1585472947924" duration="7978000" />
+      <workItem from="1585491532345" duration="4427000" />
+      <workItem from="1586071165426" duration="166000" />
+      <workItem from="1586071678653" duration="207000" />
+      <workItem from="1586071914924" duration="21568000" />
+      <workItem from="1586761279174" duration="12054000" />
     </task>
     <servers />
   </component>
@@ -730,119 +471,124 @@
       <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="556957000" />
-  </component>
-  <component name="TodoView" selected-index="2">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-      <is-preview-enabled value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20300752" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="npm" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49570355" weight="0.17371938" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49785176" weight="0.3975501" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49731472" weight="0.32850778" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4650913" weight="0.34632516" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5026853" side_tool="true" weight="0.32850778" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Console" order="12" weight="0.3404018" />
-      <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Mongo Explorer" order="1" visible="true" weight="0.15145005" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="SciView" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Ant Build" order="8" weight="0.24973147" />
-      <window_info anchor="right" id="Maven Projects" order="9" weight="0.3299025" />
-      <window_info anchor="right" id="Database" order="10" weight="0.20354457" />
-      <window_info anchor="right" id="Maven" order="11" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.124060154" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="npm" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49570355" weight="0.33073497" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49785176" weight="0.3975501" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49731472" weight="0.32924107" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4650913" visible="true" weight="0.34632516" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5026853" side_tool="true" weight="0.32924107" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Console" order="12" weight="0.3404018" />
-      <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Mongo Explorer" order="1" weight="0.09935553" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="SciView" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Ant Build" order="8" weight="0.24973147" />
-      <window_info anchor="right" id="Maven Projects" order="9" weight="0.3299025" />
-      <window_info anchor="right" id="Database" order="10" weight="0.039205156" />
-      <window_info anchor="right" id="Maven" order="11" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585491891609">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585491891609" />
+    <state x="689" y="200" key="FileChooserDialogImpl" timestamp="1586071272508">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="200" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586071272508" />
+    <state width="1864" height="262" key="GridCell.Tab.0.bottom" timestamp="1586776049866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
+    <state width="1864" height="262" key="GridCell.Tab.0.center" timestamp="1586776049866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
+    <state width="1864" height="262" key="GridCell.Tab.0.left" timestamp="1586776049866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
+    <state width="1864" height="262" key="GridCell.Tab.0.right" timestamp="1586776049866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586776049866" />
+    <state width="1864" height="326" key="GridCell.Tab.1.bottom" timestamp="1586731505896">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505896" />
+    <state width="1864" height="326" key="GridCell.Tab.1.center" timestamp="1586731505896">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505896" />
+    <state width="1864" height="326" key="GridCell.Tab.1.left" timestamp="1586731505896">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505896" />
+    <state width="1864" height="326" key="GridCell.Tab.1.right" timestamp="1586731505896">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505896" />
+    <state width="1864" height="326" key="GridCell.Tab.2.bottom" timestamp="1586731505898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505898" />
+    <state width="1864" height="326" key="GridCell.Tab.2.center" timestamp="1586731505897">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505897" />
+    <state width="1864" height="326" key="GridCell.Tab.2.left" timestamp="1586731505897">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505897" />
+    <state width="1864" height="326" key="GridCell.Tab.2.right" timestamp="1586731505897">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505897" />
+    <state width="1864" height="326" key="GridCell.Tab.3.bottom" timestamp="1586731505899">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505899" />
+    <state width="1864" height="326" key="GridCell.Tab.3.center" timestamp="1586731505898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505898" />
+    <state width="1864" height="326" key="GridCell.Tab.3.left" timestamp="1586731505898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505898" />
+    <state width="1864" height="326" key="GridCell.Tab.3.right" timestamp="1586731505898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="326" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505898" />
+    <state x="461" y="127" key="SettingsEditor" timestamp="1585491414535">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="127" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585491414535" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586763426312">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586763426312" />
+    <state x="661" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1586071196822">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="661" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586071196822" />
+    <state x="230" y="32" key="new project wizard" timestamp="1586071731156">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="230" y="32" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1586071731156" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/test/Grid.test.js</url>
-          <line>10</line>
+          <url>file://$PROJECT_DIR$/dara-backend/bin/www</url>
+          <line>36</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dara-backend/bin/www</url>
+          <line>37</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/servers/server.js</url>
-          <line>25</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/servers/server.js</url>
-          <line>32</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/servers/server.js</url>
-          <line>39</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -869,410 +615,5 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/components/PlayerView.jsx" />
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupHandler.jsx" />
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupRegister.js" />
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/registerServiceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2668">
-          <caret line="116" column="1" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/ressources/neem-court.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/images/haussaLogo.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/images/pierreJeton.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/images/tigeJetons.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/images/boule.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/images/31143916_891616974342916_9208745637397397504_n.jpg" />
-    <entry file="file://$PROJECT_DIR$/dara-ui/public/favicon.ico" />
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/logo.svg" />
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/images/banco-relief-haussa.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/public/env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/public/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/node_modules/react-popper/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/npm-debug.log" />
-    <entry file="file://$PROJECT_DIR$/dara-ui/node_modules/bootstrap/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/server/DaraApi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-backend/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-backend/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-backend/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/public/haussaLogo.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/App.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/GameCell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/Configuration.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/ComputerPlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="138" column="1" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/Cell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="170" column="6" lean-forward="true" selection-start-line="170" selection-start-column="6" selection-end-line="170" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/components/GourbinDara.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/components/GourabounDara.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="40" column="58" lean-forward="true" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="151" column="1" lean-forward="true" selection-start-line="151" selection-start-column="1" selection-end-line="151" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/IntelligentPlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/GameInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/Grid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="109" column="24" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/GameGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="60" column="31" lean-forward="true" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="250" column="10" selection-start-line="250" selection-start-column="10" selection-end-line="250" selection-end-column="10" />
-          <folding>
-            <element signature="e#5922#8695#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/components/DianDara.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1427">
-          <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-backend/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-backend/database/DataBaseManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/components/DaraPlayerView.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/gameRules/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupContainer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/dynamicPopup/PopupStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/popups/LoginPopup.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/components/DarraGame.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="164" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

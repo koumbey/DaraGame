@@ -1,11 +1,12 @@
 import getStore from '../dynamicPopup/PopupStore'
 import React from 'react'
 import {TextField, Button} from "@material-ui/core";
-import DaraApi from '../server/DaraApi'
+import {DaraApi, DaraSocket} from '../server/DaraApi'
 import base64 from 'base-64'
 import Proptypes from 'prop-types'
 
-export default class LoginPopup extends React.Component{
+
+export default class LoginPopup extends React.Component {
 
     static propTypes = {
         callback: Proptypes.func
@@ -26,8 +27,14 @@ export default class LoginPopup extends React.Component{
     login() {
         let userInfo = "Basic " + base64.encode(this.state.login + ":" + this.state.password);
         let callback  = this.props.callback;
+        let login = this.state.login;
         DaraApi.get("/users/authenticate", {headers: {Authorization: userInfo}}).then(res => {
-            callback(res.data)
+            res = callback(res.data);
+            DaraSocket.send(JSON.stringify({joinUser:login}));
+            if (res){
+                let popup_store = getStore();
+                popup_store.close("Login_Popup")
+            }
         }, err =>{
             debugger;
             console.log(err)
@@ -49,7 +56,7 @@ export default class LoginPopup extends React.Component{
                 <div>
                 <TextField
                     id="password"
-                    label="Kalmonin shirri"
+                    label="Kalmonin sirri"
                     fullWidth={true}
                     type="password"
                     value={this.state.password}

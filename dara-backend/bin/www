@@ -21,9 +21,55 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+var io = require('socket.io')(server);
 /**
  * Listen on provided port, on all network interfaces.
  */
+let WSServer = require('ws').Server;
+let WS = require('ws');
+let wss = new WSServer({server: server});
+
+// Broadcast to all.
+wss.broadcast = function broadcast(message) {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WS.OPEN) {
+      //client.send(message);
+      if(client.userId.indexOf(JSON.parse(message).to)>-1){
+        client.send(message);
+      }
+    }
+  });
+};
+
+wss.on('connection', function connection(ws) {
+
+  ws.userId=[]; //liste des channels users
+
+  ws.threadId=[]; //liste des channels threads
+
+
+  ws.on('message', function incoming(message) {
+
+    console.log(`received: ${message}`);
+
+    let data =JSON.parse(message);
+    if(data.joinUser) // joindre le tableau des users en envoyant son userId
+    {
+      //message attendu : {joinUser: userId}
+      ws.userId.push(data.joinUser);
+    }
+    if(data.to) // envoyer un message à un user
+    {
+      //message attendu : {userId: userId, msg: msg}
+      wss.broadcast(message);
+    }
+  });
+
+  ws.on('error',function(e){ return console.log(e);});
+  ws.on('close',function(e){ return console.log('websocket closed'+e);});
+});
+
+
 
 server.listen(port);
 server.on('error', onError);
@@ -88,3 +134,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+

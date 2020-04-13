@@ -34,7 +34,7 @@ export default (function() {
             if (name in this.registrations && this.showCallback){
                 let registerInfo = this.getRegistration(name);
                 this.closeCallback(registerInfo);
-                if (typeof registerInfo.afterClose){
+                if (typeof registerInfo.afterClose === "function"){
                     registerInfo.afterClose()
                 }
 
