@@ -12,7 +12,8 @@ export default class GamePlayer {
 
         this.jetonType = jetonType;
         this.tour = false;
-        this.hasEarnJeton = false;
+        this.hasLinedThree = false;
+        this.LinedJeton = [];
 
         Object.defineProperty(this, 'playerJeton', {value: []});
         for(let i = 0; i < GamePlayer.jetonNumber; i++ ){
@@ -65,7 +66,7 @@ export default class GamePlayer {
 
     prepareNextPart(newType){
         this.jetonType = newType;
-        this.hasEarnJeton  = false;
+        this.hasLinedThree  = false;
         //this.setTour(this.hasWonPart());
         for(let i = 0; i < GamePlayer.jetonNumber; i++ ){
             this.playerJeton[i] = newType;
@@ -85,14 +86,15 @@ export default class GamePlayer {
         return result;
     };
 
-    winJeton(from, to, jeton){
+    getOpponentJeton(from, to, jeton){
         let partEnded = false;
         if(jeton !== this.jetonType
-            && this.hasEarnJeton
+            && this.hasLinedThree
             && this.playerJeton[to] === Cell.ValueEnum.EMPTY) {
             this.playerJeton[to] = jeton;
             this.grid.setState(from,  Cell.ValueEnum.EMPTY);
-            this.hasEarnJeton =false;
+            this.hasLinedThree =false;
+            this.LinedJeton = [];
             this.tour = false;
             if(this.hasWonPart()){
                 partEnded = true;
@@ -138,11 +140,13 @@ export default class GamePlayer {
         if(this.tour && this.opponent){
             let moveInfo = this.grid.moveState(from, to);
             if(moveInfo.moved){
-                if(!moveInfo.thirdLined){
+                if(moveInfo.ThirdLined.length < 3){
                     this.tour = false;
                     this.opponent.setTour(true);
+                    this.LinedJeton = []
                 }else{
-                    this.hasEarnJeton = moveInfo.thirdLined;
+                    this.hasLinedThree = true;
+                    this.LinedJeton =  moveInfo.ThirdLined
                 }
                 result = true;
             }
@@ -157,7 +161,8 @@ export default class GamePlayer {
         if(this.tour){
             result.gameInfos={
                 playerTour: this.name+"(" + Cell.getStateString(this.jetonType) + ")",
-                winJeton : this.hasEarnJeton
+                winJeton : this.hasLinedThree,
+                linedJeton: this.LinedJeton
             }
         }
         result.states.playerPoint = this.point;

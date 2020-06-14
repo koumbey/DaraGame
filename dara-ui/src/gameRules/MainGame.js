@@ -95,10 +95,10 @@ export default class MainGame {
     };
 
     getJetonWinner(){
-        if(this.player.hasEarnJeton){
+        if(this.player.hasLinedThree){
             return this.player;
         }
-        else if(this.opponent.hasEarnJeton){
+        else if(this.opponent.hasLinedThree){
             return this.opponent;
         }else{
             return null;
@@ -141,7 +141,7 @@ export default class MainGame {
         let from = dragInfo.pos;
         let player = this.getJetonWinner();
         if(player ){
-            this.endPart = player.winJeton(from, to, dragInfo.type);
+            this.endPart = player.getOpponentJeton(from, to, dragInfo.type);
         }
     };
 

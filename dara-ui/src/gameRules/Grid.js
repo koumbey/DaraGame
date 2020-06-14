@@ -2,9 +2,9 @@ import Cell from "./Cell";
 
 export default class Grid {
 
-    static ColumnNumber = 5;
+    static ColumnNumber = 6;
 
-    static RowNumber = 6;
+    static RowNumber = 5;
 
     static CellNumber = 30;
 
@@ -50,15 +50,15 @@ export default class Grid {
         if(state !== Cell.ValueEnum.EMPTY) {
             let isOpt = this.cellArray[to].getOpportunityCells(state);
             if(! isOpt.mobileCells.includes(from) && this.getOpportunityNumber(state) !== 0){
-                return {moved: false, reason: "has opportiny", thirdLined: false}
+                return {moved: false, reason: "has opportiny", ThirdLined: []}
             }
             if (this.cellArray[to].verifyDeplacementRule(from)) {
                 this.cellArray[to].setState(state);
                 this.cellArray[from].setState(Cell.ValueEnum.EMPTY);
-                return {moved:true, thirdLined : isOpt.IsThird};
+                return {moved:true, ThirdLined : isOpt.ThirdLined};
             }
         }
-        return {moved :false, reason: "move forbiden", thirdLined: false};
+        return {moved :false, reason: "move forbiden", ThirdLined: false};
     }
 
     getMobileCellNumber(state){
@@ -130,7 +130,7 @@ export default class Grid {
 
     getVerticalNeighbord(pos, way){
         if(way) {
-            let res = [], step = way * 5;
+            let res = [], step = way * Grid.ColumnNumber;
             for (let i = pos + step; this.hasPosition(i); i += step) {
                 res.push(i);
             }

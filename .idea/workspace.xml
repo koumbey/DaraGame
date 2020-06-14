@@ -2,58 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef687020-f677-4710-ad5e-ad174dbc1a9a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/components/DianDara.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/DianDara.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/components/GourabounDara.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/GourabounDara.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/components/GourbinDara.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/GourbinDara.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/components/HomePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/Cell.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/Cell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/ComputerPlayer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/GameCell.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/GameGrid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/GameInfo.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/GamePlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/Grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/Grid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/dara-ui/src/gameRules/MainGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/gameRules/Player.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/test/ComputerPlayer.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/test/GameCell.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dara-ui/src/test/GameGrid.test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="UserDB.db" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="UserDB.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="UserDB.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="UserDB.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="User: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="DaraGame" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,19 +50,19 @@
   <component name="ProjectId" id="1S9GzgbZ0PMkHQ2rahNa8mOEggi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="TODO_SCOPE" value="Project Production Files" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554029313854" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DaraGameMobile" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -99,7 +77,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -112,7 +90,7 @@
       <recent name="H:\Desktop\TDD\reactReduxApp\src\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Run-Server">
+  <component name="RunManager" selected="npm.Run-UI">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -273,24 +251,6 @@
   <component name="SQLPlugin.ProjectConfiguration">
     <queries />
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <option name="contentProportion" value="0.6332786" />
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="UserDB.db: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -425,82 +385,67 @@
       <workItem from="1586071678653" duration="207000" />
       <workItem from="1586071914924" duration="21568000" />
       <workItem from="1586761279174" duration="23758000" />
+      <workItem from="1588341140331" duration="1199000" />
+      <workItem from="1589029966723" duration="8127000" />
+      <workItem from="1589103025238" duration="8634000" />
+      <workItem from="1590932812424" duration="16158000" />
+      <workItem from="1592083411591" duration="568000" />
+      <workItem from="1592084465691" duration="29000" />
+      <workItem from="1592085040278" duration="388000" />
+      <workItem from="1592086932360" duration="73000" />
+      <workItem from="1592128565701" duration="913000" />
+      <workItem from="1592130897467" duration="3409000" />
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 18m 01s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 19m 54s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 20m 41s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 21m 33s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 21m 43s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 22m 42s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 24m 06s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 24m 55s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 26m 18s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="Grid_should_have_cell_with_the_rigth_neighbord - 2018.12.25 at 00h 26m 54s.xml">
-      <configuration name="Grid should.have cell with the rigth neighbord" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585491891609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585491891609" />
-    <state x="689" y="200" key="FileChooserDialogImpl" timestamp="1586071272508">
+    <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589126394225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="200" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586071272508" />
-    <state width="1864" height="262" key="GridCell.Tab.0.bottom" timestamp="1586804377623">
+    <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589126394225" />
+    <state x="516" y="45" key="CommitChangelistDialog2" timestamp="1588342324605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
-    <state width="1864" height="262" key="GridCell.Tab.0.center" timestamp="1586804377623">
+    <state x="516" y="45" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588342324605" />
+    <state x="689" y="200" key="FileChooserDialogImpl" timestamp="1592128891236">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
-    <state width="1864" height="262" key="GridCell.Tab.0.left" timestamp="1586804377623">
+    <state x="689" y="200" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592128891236" />
+    <state width="1864" height="260" key="GridCell.Tab.0.bottom" timestamp="1592133374391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
-    <state width="1864" height="262" key="GridCell.Tab.0.right" timestamp="1586804377623">
+    <state width="1864" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592133374391" />
+    <state width="1864" height="260" key="GridCell.Tab.0.center" timestamp="1592133374391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1864" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586804377623" />
+    <state width="1864" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592133374391" />
+    <state width="1864" height="260" key="GridCell.Tab.0.left" timestamp="1592133374391">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592133374391" />
+    <state width="1864" height="260" key="GridCell.Tab.0.right" timestamp="1592133374391">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1864" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592133374391" />
     <state width="1864" height="326" key="GridCell.Tab.1.bottom" timestamp="1586731505896">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -549,10 +494,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1864" height="326" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586731505898" />
-    <state x="461" y="127" key="SettingsEditor" timestamp="1585491414535">
+    <state x="461" y="127" key="SettingsEditor" timestamp="1592085395251">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="127" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585491414535" />
+    <state x="461" y="127" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592085395251" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586763426312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -561,10 +506,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="661" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586071196822" />
-    <state x="230" y="32" key="new project wizard" timestamp="1586071731156">
+    <state x="716" y="418" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588342316013">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="230" y="32" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1586071731156" />
+    <state x="716" y="418" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588342316013" />
+    <state x="230" y="32" key="new project wizard" timestamp="1592085338855">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="230" y="32" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1592085338855" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

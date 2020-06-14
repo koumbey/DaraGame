@@ -26,8 +26,8 @@ class DianDara extends React.Component{
         return (
             <div>
             {this.props.cellsState.map(function (row, idx) {
-                let size = 40*(4 - row.length);
-                return(<div className="row" key={idx} style={{marginLeft: size+"px"}}>
+                let size = 2*(4 - row.length);
+                return(<div className="row" key={idx} style={{marginLeft: size+"vw"}}>
                     {row.map(function (item, idy) {
                         let id = 'out-' + item.state+ "-" +item.pos;
                         return(

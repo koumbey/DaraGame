@@ -18,7 +18,6 @@ import {ListItem} from "@material-ui/core";
 import Badge from "@material-ui/core/Badge";
 import {DaraSocket} from "../server/DaraApi";
 
-
 class HomePage extends React.Component{
     static show = function () {
         let popup_store = getStore();
@@ -57,10 +56,10 @@ class HomePage extends React.Component{
         DaraSocket.subscribe("play", this.onDrop)
     }
 
-    showLogin() {
+    showLogin(callback) {
         let popup_store = getStore();
         if (!popup_store.isRegistered("Login_Popup")){
-            popup_store.register("Login_Popup", LoginPopup , "Sign in", {callback: this.afterLogin})
+            popup_store.register("Login_Popup", LoginPopup, "Sign in", {callback: this.afterLogin})
         }
         popup_store.show("Login_Popup")
     }
@@ -80,7 +79,7 @@ class HomePage extends React.Component{
         event.preventDefault();
         if(event && event.target && event.target.id) {
             let dragInfo = HomePage.getDragDropInfo(event.target.id);
-            if (dragInfo.type === this.state.player.jeton || this.gameInfo.player.hasEarnJeton) {
+            if (dragInfo.type === this.state.player.jeton || this.gameInfo.player.hasLinedThree) {
                 this.dragInfo =  dragInfo;
                 this.dragInfo.IsEmpty = false;
             }
@@ -112,21 +111,6 @@ class HomePage extends React.Component{
         this.dragInfo = {IsEmpty: true};
         this.setState(updateState);
     }
-
-    /*onPlayReceive(data){
-        let action = data.action;
-        this.gameInfo.playGame(action[0], action[1]);
-        if(this.gameInfo.isPartEnded()){
-            let winner = this.gameInfo.getWinner();
-            Popup.alert("Game ended. \nPlayer "+ winner.name + " win !!!");
-            this.gameInfo.initialiseGameInfo();
-        }
-        let updateState = this.gameInfo.getGameStates();
-
-        this.dragInfo = {IsEmpty: true};
-        this.setState(updateState);
-    }*/
-
 
     afterLogin(data){
         let connectedUser = {
@@ -169,9 +153,9 @@ class HomePage extends React.Component{
             let players = this.state.player.start? [this.state.player.name, this.state.opponent.name]: [this.state.opponent.name, this.state.player.name];
             let firstPlayerInfo = this.gameInfo.getPlayerIdAndPoint(players[0]);
             let secondPlayerInfo = this.gameInfo.getPlayerIdAndPoint(players[1]);
-            return <div style={{marginRight: "50px", marginLeft: "50px"}}>
+            return <div style={{marginRight: "5%", marginLeft: "5%"}}>
                 <div className={"row"}>
-                    <div className={"col-lg-4"} style={{marginTop:"10px", marginBottom:"10px"}}>
+                    <div className={"col-lg-3"}>
                         <DianDara
                             cellsState={this.state[firstPlayerInfo.id]}
                             onDrop={this.onDrop}
@@ -180,7 +164,7 @@ class HomePage extends React.Component{
                             playerPoint={firstPlayerInfo.point}
                         />
                     </div>
-                    <div className={"col-lg-4"} style={{marginTop:"10px", marginBottom:"10px"}}>
+                    <div className={"col-lg-6 square-box"}>
                         <GourabounDara
                             cellsState={this.state.gridStates}
                             onDrop={this.onDrop}
@@ -188,11 +172,12 @@ class HomePage extends React.Component{
                             onMouseEnter={this.onMouseEnter}
                             gameInfos={{
                                 playerTour:this.state.playerTour,
-                                winJeton:this.state.winJeton
+                                winJeton:this.state.winJeton,
+                                linedJeton:this.state.linedJeton
                             }}
                         />
                     </div>
-                    <div className={"col-lg-4"}  style={{marginTop:"10px", marginBottom:"10px"}}>
+                    <div className={"col-lg-3"}>
                         <DianDara
                             cellsState={this.state[secondPlayerInfo.id]}
                             onDrop={this.onDrop}
@@ -209,9 +194,9 @@ class HomePage extends React.Component{
 
     renderPlayerFinder(){
         if (this.state.isConnected && ! this.state.hasOpponent){
-            return <div style={{marginRight: "50px", marginLeft: "50px"}}>
+            return <div style={{marginRight: "5%", marginLeft: "5%"}}>
                 <div className={"row"}>
-                    <div className={"col-lg-4"} style={{marginTop:"10px", marginBottom:"10px"}}>
+                    <div className={"col-lg-3"}>
                         <div className="jumbotron">
                             <ListItem>
                                 <h5>
@@ -223,13 +208,13 @@ class HomePage extends React.Component{
                             <ListItem>
                                 <img style={{height:"30px"}} src={logo} className="App-logo" alt="logo"/>
                                 <Badge badgeContent={this.state.playerPoint} showZero={true} color="secondary">
-                                    <h5><span style={{margin:"10px"}}> Point </span></h5>
+                                    <h5><span> Point </span></h5>
                                 </Badge>
-                                <img style={{height:"30px", marginLeft:"10px"}} src={logo} className="App-logo" alt="logo"/>
+                                <img style={{height:"30px", marginLeft:"1%"}} src={logo} className="App-logo" alt="logo"/>
                             </ListItem>
                         </div>
                     </div>
-                    <div className={"col-lg-4"} style={{marginTop:"10px", marginBottom:"10px"}}>
+                    <div className={"col-lg-6 square"}>
                         <GourabounDara
                             cellsState={this.state.gridStates}
                             onDrop={this.onDrop}
@@ -237,11 +222,12 @@ class HomePage extends React.Component{
                             onMouseEnter={this.onMouseEnter}
                             gameInfos={{
                                 playerTour:this.state.playerTour,
-                                winJeton:this.state.winJeton
+                                winJeton:this.state.winJeton,
+                                linedJeton:this.state.linedJeton
                             }}
                         />
                     </div>
-                    <div className={"col-lg-4"}  style={{marginTop:"10px", marginBottom:"10px"}}>
+                    <div className={"col-lg-3"} >
                        <FindPlayer playerName={this.state.player.name} callback={this.startGame}/>
                     </div>
                 </div>
@@ -277,7 +263,7 @@ class HomePage extends React.Component{
                 </div>
                 <div>
                     Gurabu dara kuma mu anfani da griyaji mai gida talatin (30) kamar haka:
-                    <div style={{textAlign: "center", marginLeft: "250px", marginTop: "10px"}}>
+                    <div style={{textAlign: "center", marginLeft: "250px", marginTop: "10px", Height: "100px"}}>
                         <GourabounDara cellsState={cellState}/>
                     </div>
                 </div>
@@ -296,17 +282,17 @@ class HomePage extends React.Component{
                         <img src={logo} className="App-logo" alt="logo"/>
                     </div>
                     <div className="col-lg-4">
-                        <span  style={{fontSize: "40px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}>
+                        <span  style={{fontSize: "2vw", fontWeight: "bold" , marginLeft:"1vw", marginRight: "1vw" , marginTop: "1vw"}}>
                             WASAN DARA HAUSAWA
                         </span>
                     </div>
                     <div className="col-lg-5">
-                        <Button style={{color:"white",fontSize: "20px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}
+                        <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"1vw", marginRight: "1vw" , marginTop: "0.5vw"}}
                         onClick={this.showLogin}>
-                            <AccountCircle style={{fontSize:"40px"}}/> { this.state.isConnected? this.state.player.name:"Shigadda kanka"}
+                            <AccountCircle style={{fontSize:"2vw"}}/> { this.state.isConnected? this.state.player.name:"Shigadda kanka"}
                         </Button>
-                        <Button style={{color:"white",fontSize: "20px", fontWeight: "bold" , marginLeft:"20px", marginRight: "20px" , marginTop: "10px"}}>
-                            <Create style={{fontSize:"40px"}}/> Sabon Dan wasa
+                        <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"0.5vw", marginRight: "1vw" , marginTop: "0.5vw"}}>
+                            <Create style={{fontSize:"2vw"}}/> Sabon Dan wasa
                         </Button>
                     </div>
                 </div>

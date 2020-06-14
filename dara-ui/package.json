@@ -9,10 +9,10 @@
     "base-64": "^0.1.0",
     "bootstrap": "^4.3.1",
     "event": "^1.0.0",
+    "jquery": "^3.5.1",
     "prop-types": "^15.6.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-popup": "^0.9.2",
     "react-scripts": "^3.4.0",
     "reactstrap": "^5.0.0-beta.3"
   },

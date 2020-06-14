@@ -112,19 +112,18 @@ export default class Cell{
         return nb;
     }
 
-    getLineNumberState(state, keys){
-        let nb = 0;
+    getLineNeighbordState(state, keys){
+        let lined = []
         for(let i in keys){
             let neighbords = this.neighbord[keys[i]], index = 0;
             if(neighbords && neighbords.length >0) {
-                while (neighbords.length > index
-                && this.grid.getCellState(neighbords[index]) === state) {
-                    nb += 1;
+                while (neighbords.length > index && this.grid.getCellState(neighbords[index]) === state) {
+                    lined.push(neighbords[index])
                     index += 1;
                 }
             }
         }
-        return nb;
+        return lined;
     };
 
 
@@ -141,17 +140,28 @@ export default class Cell{
     }
 
     getConfigInfoForGivenLocation(state, location){
-        let nbLoc =  this.getLineNumberState(state, [location]);
-        if( nbLoc !== 0 ) {
+        let nbLoc =  this.getLineNeighbordState(state, [location]);
+        if( nbLoc.length !== 0 ) {
             let mobilePos = this.neighbord[location][0];
             let vertical = ["top", "bottom"].filter(item => item !== location);
             let horizontal = ["left", "right"].filter(item => item !== location);
-            let v = this.getLineNumberState(state, vertical) + 1;
-            let h = this.getLineNumberState(state, horizontal) + 1;
+            let nv = this.getLineNeighbordState(state, vertical) ;
+            let nh = this.getLineNeighbordState(state, horizontal) ;
+            let v = nv.length + 1
+            let h = nh.length + 1
+            let lined = []
+            if (h ===3 && v <4){
+                lined = lined.concat( nh)
+                lined.push(this.pos)
+            }
+            if (h<4 && v ===3){
+                lined.push(this.pos)
+                lined = lined.concat(nv)
+            }
             return {
                 hasMobile: (h < 4 && v < 4),
                 pos : mobilePos,
-                canLineThird: (h ===3 && v <4) || (h<4 && v ===3),
+                ThirdLined: lined,
                 total: (nbLoc + h +v)
             }
         }
@@ -164,7 +174,7 @@ export default class Cell{
 
     getNeighbordState(state){
         let keys = Object.keys(this.neighbord);
-        return this.getLineNumberState(state, keys);
+        return this.getLineNeighbordState(state, keys);
     }
 
     // the lined three same token ie forbiden
@@ -172,8 +182,8 @@ export default class Cell{
         let vertical = ["top", "bottom"];
         let horizontal = ["left", "right"];
         if(this.isEmpty()) {
-            return (this.getLineNumberState(state, vertical) <2
-                 && this.getLineNumberState(state, horizontal) < 2);
+            return (this.getLineNeighbordState(state, vertical).length < 2
+                 && this.getLineNeighbordState(state, horizontal).length < 2);
         }
         return false
     }
@@ -185,8 +195,8 @@ export default class Cell{
         if( neighborLocation && this.isEmpty() && state !== Cell.ValueEnum.EMPTY){
             let vertical = ["top", "bottom"].filter(key => key !== neighborLocation);
             let horizontal = ["left", "right"].filter(key =>  key !== neighborLocation);
-            return (this.getLineNumberState(state, vertical) < 3
-                && this.getLineNumberState(state, horizontal) < 3);
+            return (this.getLineNeighbordState(state, vertical).length < 3
+                && this.getLineNeighbordState(state, horizontal).length < 3);
         }
         return res;
     }
@@ -197,10 +207,10 @@ export default class Cell{
     }
 
     getOpportunityCells(state){
-        let res = {IsThird: false, mobileCells: []};
+        let res = {IsThird: false, mobileCells: [], ThirdLined:[]};
         this.getConfigInfos(state).forEach(item =>{
-            if(item.hasMobile && item.canLineThird){
-                res.IsThird = true;
+            if(item.hasMobile && item.ThirdLined.length > 2){
+                res.ThirdLined = item.ThirdLined;
                 res.mobileCells.push(item.pos);
             }
         });
@@ -225,13 +235,13 @@ export default class Cell{
     }
 
     getDangerousValue(state){
-        let total = this.getLineNumberState(state, Cell.Neighbord);
+        let total = this.getLineNeighbordState(state, Cell.Neighbord);
         let opt = this.getOpportunityCells(state);
         return (1 + total * (5*opt.mobileCells.length +1))
     }
 
     getProximity(state){
-        let total = this.getLineNumberState(state, Cell.Neighbord);
+        let total = this.getLineNeighbordState(state, Cell.Neighbord);
         let opt = this.getOpportunityCells(state);
         return total + opt.mobileCells.length +1
     }
