@@ -1,0 +1,54 @@
+App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height:3vw
+}
+
+.App-header {
+  height: 5vw;
+  padding: 0.2vw;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.not-allowed{
+  width:6.5vw;
+  height:6.5vw;
+  border:3px solid red;
+  background: darkred;
+}
+.allowed{
+  width:6.5vw;
+  height:6.5vw;
+  border:3px solid greenyellow;
+  background: white;
+}
+
+.in-game{;
+  width:6.5vw;
+  height:6.5vw;
+  border:3px solid;
+  background: repeating-linear-gradient(-45deg, beige, sandybrown);
+}
+.third-lined{
+  background: repeating-linear-gradient(-45deg, beige, sandybrown);
+  border: 3px solid green;
+}
+
+.out-game{
+  width:4vw;
+  height:4vw;
+}
+
+.PlayerView{
+  margin:10px;
+}

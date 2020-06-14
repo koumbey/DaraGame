@@ -1,8 +1,7 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/dara-backend/node_modules
-/dara-ui/node_modules
+/node_modules
 
 # testing
 /coverage
@@ -20,6 +19,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/.idea
-/dara-ui/.idea
-/dara-backend/.idea
