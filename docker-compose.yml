@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+
+  backend:
+    image: back-end
+    ports:
+    - "5000:5000"
+  frondend:
+    image: front-end
+    stdin_open: true
+    ports:
+      - "80:3000"
+    links:
+      - "backend:dara-backend"

@@ -17,6 +17,7 @@ import {DianDara} from "./DianDara";
 import {ListItem} from "@material-ui/core";
 import Badge from "@material-ui/core/Badge";
 import {DaraSocket} from "../server/DaraApi";
+import SubscribePopup from "../popups/SubscribePopup";
 
 class HomePage extends React.Component{
     static show = function () {
@@ -44,7 +45,6 @@ class HomePage extends React.Component{
         };
 
         this.afterLogin = this.afterLogin.bind(this);
-        this.showLogin = this.showLogin.bind(this);
         this.startGame =  this.startGame.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
         this.onDrop = this.onDrop.bind(this);
@@ -56,13 +56,6 @@ class HomePage extends React.Component{
         DaraSocket.subscribe("play", this.onDrop)
     }
 
-    showLogin(callback) {
-        let popup_store = getStore();
-        if (!popup_store.isRegistered("Login_Popup")){
-            popup_store.register("Login_Popup", LoginPopup, "Sign in", {callback: this.afterLogin})
-        }
-        popup_store.show("Login_Popup")
-    }
 
     onMouseEnter(pos){
         if(this.dragInfo && !(this.dragInfo.IsEmpty)) {
@@ -288,10 +281,11 @@ class HomePage extends React.Component{
                     </div>
                     <div className="col-lg-5">
                         <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"1vw", marginRight: "1vw" , marginTop: "0.5vw"}}
-                        onClick={this.showLogin}>
+                        onClick={() => LoginPopup.show(this.afterLogin, null)}>
                             <AccountCircle style={{fontSize:"2vw"}}/> { this.state.isConnected? this.state.player.name:"Shigadda kanka"}
                         </Button>
-                        <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"0.5vw", marginRight: "1vw" , marginTop: "0.5vw"}}>
+                        <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"0.5vw", marginRight: "1vw" , marginTop: "0.5vw"}}
+                        onClick={()=>SubscribePopup.show(this.afterLogin, null)}>
                             <Create style={{fontSize:"2vw"}}/> Sabon Dan wasa
                         </Button>
                     </div>

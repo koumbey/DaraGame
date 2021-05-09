@@ -1,8 +1,9 @@
 import  axios from 'axios';
-const DaraApi = axios.create({baseURL: "http://192.168.0.27:5000/"});
+const DaraApi = axios.create({baseURL: "http://localhost:5000/"});
 
 const subscriptions = {};
-const socket  = new WebSocket("ws://192.168.0.27:5000/");
+const socket  = new WebSocket("ws://localhost:5000/");
+
 
 const DaraSocket = {
    subscribe : function (topic, callback) {

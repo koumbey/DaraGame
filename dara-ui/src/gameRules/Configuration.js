@@ -1,5 +1,6 @@
 import Cell from "./Cell";
 
+
 export default  class Configuration {
     constructor(cell){
         if(cell instanceof  Cell){

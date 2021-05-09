@@ -7,7 +7,10 @@ import Proptypes from 'prop-types'
 
 
 export default class LoginPopup extends React.Component {
-
+    static popupDefinition = {
+        key: "LoginPopup",
+        title: "Sign in"
+    }
     static propTypes = {
         callback: Proptypes.func
     };
@@ -33,7 +36,7 @@ export default class LoginPopup extends React.Component {
             DaraSocket.send(JSON.stringify({joinUser:login}));
             if (res){
                 let popup_store = getStore();
-                popup_store.close("Login_Popup")
+                popup_store.close(LoginPopup.popupDefinition.key)
             }
         }, err =>{
             debugger;
@@ -72,11 +75,17 @@ export default class LoginPopup extends React.Component {
             <div>{this.state.signUpMessage}</div>
         </div>
     }
-    static show = function () {
+    static show = function (callback, afterClose) {
         let popup_store = getStore();
-        if (!popup_store.isRegistered("Login_Popup")){
-            popup_store.register("Login_Popup", LoginPopup , "Sign in")
+        if (!popup_store.isRegistered(LoginPopup.popupDefinition.key)){
+            popup_store.register(
+                LoginPopup.popupDefinition.key,
+                LoginPopup,
+                LoginPopup.popupDefinition.title,
+                {callback: callback},
+                afterClose
+            )
         }
-        popup_store.show("Login_Popup")
+        popup_store.show(LoginPopup.popupDefinition.key)
     }
 }

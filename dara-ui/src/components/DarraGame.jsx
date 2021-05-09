@@ -3,7 +3,6 @@ import Proptypes from 'prop-types'
 import {DianDara} from "./DianDara";
 import {GourabounDara} from "./GourabounDara";
 import Popup from 'react-popup';
-import Cell from "../gameRules/Cell";
 import MainGame from "../gameRules/MainGame";
 import AppBar from "@material-ui/core/AppBar";
 import logo from "../images/haussaLogo.svg";
@@ -38,21 +37,6 @@ class DarraGame extends React.Component{
             jeton : Proptypes.string,
             type: Proptypes.oneOf([MainGame.PlayerType.COMPUTER, MainGame.PlayerType.HUMAN])
         })
-    };
-
-    static defaultProps={
-        player: {
-            name:"Issoufou",
-            start: true,
-            jeton: Cell.ValueEnum.PIERRE,
-            type:MainGame.PlayerType.HUMAN
-        },
-        opponent: {
-            name:"Kanta",
-            start: false,
-            jeton: Cell.ValueEnum.TIGE,
-            type:MainGame.PlayerType.HUMAN
-        }
     };
 
     static getDragDropInfo = function(id){

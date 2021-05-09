@@ -10,6 +10,7 @@ var ConnectedUsers = {"Computer A.I" : {Pseudo: "Computer A.I"}};
 
 router.get("/authenticate", (req, res) =>{
     if (!req.headers.authorization || !req.headers.authorization.startsWith('Basic ')) {
+        console.log(req.headers)
       return res.status(401).send({ message: 'Missing Authorization Header' });
     }
     const base64Credentials =  req.headers.authorization.split(' ')[1];
@@ -18,11 +19,11 @@ router.get("/authenticate", (req, res) =>{
     db.ConnectUser(Pseudo, Password)
         .then(rep => {
             rep.token  = jwt.sign({id: rep.Pseudo}, config.JWT_SECRET, {expiresIn: "24h"});
-            const payload = {...ConnectedUsers};
             ConnectedUsers[rep.Pseudo] = {Pseudo : rep.Pseudo};
             res.send(rep);
         })
         .catch(err => {
+            console.log(err)
             res.status(401).send({error:err, message : "login or password is incorrect"})
         });
   });
@@ -39,10 +40,18 @@ router.get("/disconnect/:Pseudo", (req, res) =>{
 });
 
 router.post("/create", (req, res) =>{
-  let Pseudo = req.body.Pseudo;
-  let Password = req.body.Password;
-  let connection = db.CreateUser(Pseudo, Password);
-  res.send(connection);
+    const base64Credentials =  req.body.user.split(' ')[1];
+    const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
+    const [Pseudo, Password] = credentials.split(':');
+    db.CreateUser(Pseudo, Password)
+        .then(rep => {
+            const token  = jwt.sign({id: Pseudo}, config.JWT_SECRET, {expiresIn: "24h"});
+            ConnectedUsers[Pseudo] = {Pseudo : Pseudo};
+            res.send({token: token, Pseudo: Pseudo});
+        }).catch(err => {
+          console.log(err)
+          res.status(401).send({error: err, message: "login or password is incorrect"})
+      });
 });
 
 

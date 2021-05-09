@@ -217,7 +217,6 @@ export default class Cell{
         return res;
     }
 
-
     isBeginingOpportunityCell(state){
         return this.getNeighbordState(state) === 2;
     }

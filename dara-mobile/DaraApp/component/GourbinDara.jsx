@@ -15,7 +15,6 @@ const cellTypeLogo={
 class GourbinDara extends React.Component{
 
     static propTypes ={
-        jetonId: Proptypes.string.isRequired,
         jetonType: Proptypes.oneOf(Object.values(Cell.ValueEnum)).isRequired,
         onDragStart: Proptypes.func,
         onDrop: Proptypes.func,
@@ -62,16 +61,19 @@ class GourbinDara extends React.Component{
 
     render(){
         let Logo = cellTypeLogo[this.props.jetonType];
+        let h = (this.props.jetonType === Cell.ValueEnum.TIGE)?140:40
+        let w = (this.props.jetonType === Cell.ValueEnum.TIGE)?140:40
         return (
             <Draggable
-                x={0}
-                y={0}
-               onLongPress={()=>console.log('long press')}
-               onShortPressRelease={()=>console.log('press drag')}
-               onPressIn={()=>console.log('in press')}
-               onPressOut={()=>console.log('out press')}
+                x={this.props.posX}
+                y={this.props.posY}
+                onLongPress={()=>console.log('long press')}
+                onShortPressRelease={()=>console.log('press drag')}
+                onPressIn={()=>console.log('in press')}
+                onPressOut={()=>console.log('out press')}
+                z={100}
                 >
-                <View><Logo height={50} width={50}/></View>
+                <View><Logo height={h} width={w}/></View>
             </Draggable>
         );
     }

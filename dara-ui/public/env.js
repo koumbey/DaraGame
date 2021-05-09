@@ -1,3 +1,4 @@
 module.exports = {
-    BackendEndpoint: ""
+    BackendHost: "dara-back-end",
+    BackendPort: "5000"
 }
