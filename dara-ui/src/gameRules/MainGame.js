@@ -1,9 +1,9 @@
-import Grid from "./Grid";
-import GamePlayer from "./GamePlayer";
-import IntelligentPlayer from "./IntelligentPlayer";
+const {Grid} = require("./Grid");
+const {GamePlayer}  = require("./GamePlayer");
+const {IntelligentPlayer} = require("./IntelligentPlayer");
 
 
-export default class MainGame {
+class MainGame {
 
     static playerId = {PLAYER: "1", OPPONENT: "2"};
 
@@ -12,16 +12,15 @@ export default class MainGame {
     constructor(player, opponent){
         this.grid  = new Grid();
         if(player.type === MainGame.PlayerType.COMPUTER) {
-            this.player = new IntelligentPlayer(this, player.jeton, MainGame.playerId.PLAYER);
+            this.player = new IntelligentPlayer(this, player.stoneType, MainGame.playerId.PLAYER);
         }else{
-            this.player = new GamePlayer(this.grid, MainGame.playerId.PLAYER, player.jeton, player.name)
+            this.player = new GamePlayer(this.grid, MainGame.playerId.PLAYER, player.stoneType, player.name)
         }
         if(opponent.type === MainGame.PlayerType.COMPUTER){
-            this.opponent = new IntelligentPlayer(this, opponent.jeton, MainGame.playerId.OPPONENT);
+            this.opponent = new IntelligentPlayer(this, opponent.stoneType, MainGame.playerId.OPPONENT);
         }else {
-            this.opponent = new GamePlayer(this.grid, MainGame.playerId.OPPONENT, opponent.jeton, opponent.name);
+            this.opponent = new GamePlayer(this.grid, MainGame.playerId.OPPONENT, opponent.stoneType, opponent.name);
         }
-        this.isFirstStep = true;
         this.endPart = false;
         this.player.setOpponent(this.opponent);
         this.player.setTour(player.start);
@@ -38,8 +37,8 @@ export default class MainGame {
         }
     }
 
-    getPlayerJeton(playerName) {
-        return (this.player.name === playerName) ? this.player.jetonType : this.opponent.jetonType;
+    getPlayerStoneByName(playerName) {
+        return (this.player.name === playerName) ? this.player.stoneType : this.opponent.stoneType;
     }
 
     getGameStates(){
@@ -59,25 +58,26 @@ export default class MainGame {
     };
 
     initialiseGameInfo(){
-        this.isFirstStep = true;
         this.endPart = false;
-        // exchange jeton
-        let state1 = this.player.jetonType;
-        let state2 = this.opponent.jetonType;
+        // exchange stones
+        let opponentStoneType = this.player.stoneType;
+        let playerStoneType = this.opponent.stoneType
         let tour = this.player.IsWinner;
-        this.player.prepareNextPart(state2);
-        this.opponent.prepareNextPart(state1);
+        this.grid  = new Grid();
+        this.player.prepareNextPart(playerStoneType);
+        this.opponent.prepareNextPart(opponentStoneType);
         this.player.setTour(tour);
+        this.player.grid =  this.grid
+        this.opponent.grid =  this.grid
         this.opponent.setTour(!tour);
 
-        this.grid.clearGrid();
     };
 
     getWhoPlay(state){
-        if(this.player.tour && this.player.isJeton(state)){
+        if(this.player.tour && this.player.stoneType === state){
             return this.player
         }
-        else if(this.opponent.tour && this.opponent.isJeton(state)){
+        else if(this.opponent.tour && this.opponent.stoneType === state){
             return this.opponent;
         }else{
             return null;
@@ -94,71 +94,68 @@ export default class MainGame {
         }
     };
 
-    getJetonWinner(){
-        if(this.player.hasLinedThree){
-            return this.player;
-        }
-        else if(this.opponent.hasLinedThree){
-            return this.opponent;
-        }else{
-            return null;
-        }
-    };
 
     isPartEnded(){
-        if(!this.isFirstStep) {
+        if(this.grid.isFilled) {
             return (this.player.IsWinner || this.opponent.IsWinner);
         }
         return false;
     };
 
-    placeJetons(dragInfo, dropInfo){
+    putStoneInGame(dragInfo, dropInfo){
         let result = false;
         let to = dropInfo.pos;
         let from = dragInfo.pos;
         let player = this.getWhoPlay(dragInfo.type);
         if(player && dragInfo.from === "out" && dropInfo.from === "in"){
-            result = player.putJetonInGame(from, to);
+            result = player.putStoneInGame(from, to);
         }
         return result;
     };
 
-    moveJeton(dragInfo, dropInfo){
-        let result = false;
+    moveStone(dragInfo, dropInfo){
+        let result;
         let to = dropInfo.pos;
         let from = dragInfo.pos;
         let player = this.getWhoPlay(dragInfo.type);
         if(player){
-            result = player.moveJeton(from, to);
+            result = player.moveStone(from, to);
         }else{
-            result = this.getJeton(dragInfo, dropInfo)
+            result = this.getOpponentStone(dragInfo, dropInfo)
         }
         return result;
     };
 
-    getJeton(dragInfo, dropInfo){
+    getOpponentStone(dragInfo, dropInfo){
         let to = dropInfo.pos;
         let from = dragInfo.pos;
-        let player = this.getJetonWinner();
-        if(player ){
-            this.endPart = player.getOpponentJeton(from, to, dragInfo.type);
+        let result = false
+        if (this.player.hasAlignedThree){
+            [this.endPart, result] = this.player.takeOffOpponentStone(from, to, dragInfo.type)
+        }else if (this.opponent.hasAlignedThree){
+            [this.endPart, result] = this.opponent.takeOffOpponentStone(from, to, dragInfo.type)
         }
+        return result
     };
 
     playGame(dragInfo, dropInfo){
-        if(this.isFirstStep){
-            this.placeJetons(dragInfo, dropInfo);
-            this.isFirstStep =  this.grid.getFulledCellNumber() < 24;
+        if(!this.grid.isFilled){
+            return this.putStoneInGame(dragInfo, dropInfo);
         }else{
-            this.moveJeton(dragInfo, dropInfo);
+            return this.moveStone(dragInfo, dropInfo);
         }
     };
 
     IsChangePossible(dragInfo, dropPos){
-        if(this.isFirstStep){
-            return this.grid.cellArray[dropPos].verifyPlacementRule(dragInfo.type);
+        if(this.grid.isFilled){
+            return this.grid.cellArray[dropPos].canStateBeSet(dragInfo.type);
         }else{
-            return this.grid.cellArray[dropPos].verifyDeplacementRule(dragInfo.pos);
+            return this.grid.cellArray[dropPos].canStateBeChanged(dragInfo.type);
         }
     }
+
+}
+
+module.exports = {
+    MainGame
 }

@@ -2,19 +2,19 @@ import React from 'react'
 import Proptypes from 'prop-types'
 import pierreJeton from '../images/pierreJeton.svg';
 import tigeJeton from '../images/tigeJetons.svg'
-import Cell from "../gameRules/Cell";
+const {GridCell} = require( "../gameRules/GridCell");
 
 const cellTypeLogo={
-    [Cell.ValueEnum.TIGE]: tigeJeton,
-    [Cell.ValueEnum.PIERRE]: pierreJeton
+    [GridCell.ValueEnum.TIGE]: tigeJeton,
+    [GridCell.ValueEnum.PIERRE]: pierreJeton
 };
 
 class GourbinDara extends React.Component{
 
 
     static propTypes ={
-        jetonId: Proptypes.string.isRequired,
-        jetonType: Proptypes.oneOf(Object.values(Cell.ValueEnum)).isRequired,
+        stoneId: Proptypes.string.isRequired,
+        stoneType: Proptypes.oneOf(Object.values(GridCell.ValueEnum)).isRequired,
         onDragStart: Proptypes.func,
         onDrop: Proptypes.func,
         onMouseEnter: Proptypes.func,
@@ -34,7 +34,7 @@ class GourbinDara extends React.Component{
 
     handleMouseEnter(event){
         event.preventDefault();
-        let cellInfo = this.props.jetonId.split("-");
+        let cellInfo = this.props.stoneId.split("-");
         if(typeof this.props.onMouseEnter === "function"){
             let styleClass = this.props.onMouseEnter(parseInt(cellInfo[2],10));
             if(styleClass && styleClass.change) {
@@ -57,20 +57,21 @@ class GourbinDara extends React.Component{
     }
 
     render(){
-        let Logo = cellTypeLogo[this.props.jetonType];
+        let Logo = cellTypeLogo[this.props.stoneType];
         return (
-            <div id={this.props.jetonId+"-container"}
+            <div id={this.props.stoneId+"-container"}
                  className={this.state.stateClassName}
+                 key={this.props.key}
                  onDrop={this.handleDrop}
                  onDragOver={this.handleMouseEnter}
                  onDragLeave={this.onDragLeave}
             >
                 {Logo &&
                 <img
-                    id={this.props.jetonId}
+                    id={this.props.stoneId}
                     src={Logo}
                     className="Cell-logo"
-                    alt={this.props.jetonType}
+                    alt={this.props.stoneType}
                     onDrag={this.props.onDragStart}
                     draggable={true}/>
                 }

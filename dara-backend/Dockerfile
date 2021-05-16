@@ -10,7 +10,7 @@ COPY . ./
 
 EXPOSE 5000
 
-WORKDIR /usr/src/app/bin
+WORKDIR /usr/src/app
 
-CMD [ "node", "www" ]
+CMD [ "node", "app" ]
 

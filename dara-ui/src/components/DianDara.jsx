@@ -1,7 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types'
 import {GourbinDara} from "./GourbinDara";
-import logo from "../images/haussaLogo.svg";
 import Badge from "@material-ui/core/Badge";
 import {ListItem} from "@material-ui/core";
 
@@ -12,8 +11,15 @@ class DianDara extends React.Component{
     }
 
     static propTypes={
-        playerName: Proptypes.string,
-        playerPoint: Proptypes.number,
+        player: Proptypes.shape({
+            name: Proptypes.string.isRequired,
+            tour: Proptypes.bool.isRequired,
+            point: Proptypes.number.isRequired,
+            stoneType: Proptypes.string,
+            stoneInGame: Proptypes.number.isRequired,
+            mobileStones: Proptypes.number.isRequired,
+            availablePlaces: Proptypes.number.isRequired
+        }).isRequired,
         onDragStart: Proptypes.func,
         onDrop: Proptypes.func,
         cellsState:Proptypes.arrayOf(Proptypes.arrayOf(Proptypes.object))
@@ -31,15 +37,14 @@ class DianDara extends React.Component{
                     {row.map(function (item, idy) {
                         let id = 'out-' + item.state+ "-" +item.pos;
                         return(
-                            <div key={idy}>
                             <GourbinDara
-                                jetonType={item.state}
-                                jetonId={id}
+                                stoneType={item.state}
+                                stoneId={id}
                                 onDragStart={onDrag}
                                 onDrop={onDrop}
                                 stateClassName="out-game"
+                                key={idy}
                             />
-                            </div>
                         )
                     })}
                 </div>)
@@ -49,21 +54,28 @@ class DianDara extends React.Component{
     }
 
     render(){
+        const className = "jumbotron" +((this.props.player.tour)?" player-tour":"")
         return <div className="container" >
-            <div className="jumbotron">
+            <div className={className}>
                 <ListItem>
-                    <h5>
-                        <img style={{height:"30px"}} src={logo} className="App-logo" alt="logo"/>
-                         {" " + this.props.playerName + " "}
-                        <img style={{height:"30px"}} src={logo} className="App-logo" alt="logo"/>
-                    </h5>
+                    <Badge badgeContent={this.props.player.point} showZero={true} color="primary">
+                        <h5><span> Point </span></h5>
+                    </Badge>
                 </ListItem>
                 <ListItem>
-                    <img style={{height:"30px"}} src={logo} className="App-logo" alt="logo"/>
-                    <Badge badgeContent={this.props.playerPoint} showZero={true} color="secondary">
-                        <h5><span style={{margin:"10px"}}> Point </span></h5>
+                    <Badge badgeContent={this.props.player.availablePlaces} showZero={true} color="primary">
+                        <span> Cases disponibles </span>
                     </Badge>
-                    <img style={{height:"30px", marginLeft:"10px"}} src={logo} className="App-logo" alt="logo"/>
+                </ListItem>
+                <ListItem>
+                    <Badge badgeContent={this.props.player.mobileStones} showZero={true} color="primary">
+                        <span> Jetons mobiles </span>
+                    </Badge>
+                </ListItem>
+                <ListItem>
+                    <Badge badgeContent={this.props.player.stoneInGame} showZero={true} color="primary">
+                        <span> Jetons en jeux </span>
+                    </Badge>
                 </ListItem>
             </div>
             <div className="jumbotron">

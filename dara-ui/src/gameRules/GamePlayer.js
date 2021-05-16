@@ -1,61 +1,63 @@
-import Cell from "./Cell";
-//import Grid from "./Grid";
+const {GridCell} = require("./GridCell")
+const {Grid} =  require("./Grid")
 
-export default class GamePlayer {
+class GamePlayer {
+    static stoneNumber = 12;
 
-    static jetonNumber = 12;
-
-    constructor(grid,id, jetonType, name) {
-        Object.defineProperty(this, "id", {value: id});
-        Object.defineProperty(this, "name", {value: name});
-        Object.defineProperty(this, "grid", {value: grid});
-
-        this.jetonType = jetonType;
-        this.tour = false;
-        this.hasLinedThree = false;
-        this.LinedJeton = [];
-
-        Object.defineProperty(this, 'playerJeton', {value: []});
-        for(let i = 0; i < GamePlayer.jetonNumber; i++ ){
-            this.playerJeton.push(jetonType);
+    constructor(grid, id, stoneType, name) {
+        if (grid instanceof Grid){
+            this.grid = grid
+        }else {
+            throw new Error("An instance of Grid is Required")
         }
-
+        this.id = id
+        this.name = name
+        this.stoneType = stoneType
+        this.tour = false;
+        this.hasAlignedThree = false;
+        this.alignedStone = [];
+        this.stones = []
+        for(let i = 0; i < GamePlayer.stoneNumber; i++ ){
+            this.stones.push(stoneType);
+        }
         this.giveUp = false;
         this.point = 0;
         this.IsStarted = false;
         this.IsWinner = false;
+        this.opponent = null
+        this.earnedStone = 0
     }
 
     setTour(tour){
         this.tour = tour;
     }
 
-    setOpponent(oppt){
-        if(oppt instanceof GamePlayer) {
-            Object.defineProperty(this, "opponent", {value: oppt});
-            Object.defineProperty(oppt, "opponent", {value:this});
+    getGameStonesInfos(){
+        return {
+            stoneInGame: this.grid.stoneNumber[this.stoneType],
+            mobileStones: this.grid.mobileStones[this.stoneType],
+            availablePlaces: this.grid.stoneAvailablePlaces[this.stoneType] - this.grid.stoneNumber[this.opponent.stoneType]
+        }
+    }
+
+    setOpponent(opponent){
+        if(opponent instanceof GamePlayer) {
+            this.opponent = opponent
+            opponent.opponent = this
         }else{
             throw new Error("An instance of GamePlayer is needed");
         }
     }
 
-    getEarnedJon(){
-        let res = 0;
-        this.playerJeton.forEach(item =>{
-             if(item !== Cell.ValueEnum.EMPTY && item !== this.jetonType){
-                 res += 1;
-             }
-        });
-
-        return res;
-    }
-
     hasWonPart() {
+        /**
+         * - opponent give up or
+         */
         if(!this.opponent.giveUp) {
             let rateInfo = this.grid.getRemainCellRate();
-            let freeCell = this.grid.getMobileCellNumber(this.opponent.jetonType);
-            let myFreeCell = this.grid.getMobileCellNumber(this.jetonType);
-            this.IsStarted = ((myFreeCell !==0 && freeCell ===0) || (rateInfo.end && rateInfo.winner === this.jetonType));
+            let opponentFreeCell = this.grid.mobileStones[this.opponent.stoneType]
+            let freeCell = this.grid.mobileStones[this.stoneType]
+            this.IsStarted = ((opponentFreeCell !==0 && freeCell ===0) || (rateInfo.end && rateInfo.winner === this.stoneType));
             this.IsWinner = this.IsStarted
         }else {
             this.IsWinner = true;
@@ -63,48 +65,69 @@ export default class GamePlayer {
         return this.IsWinner;
     }
 
-
-    prepareNextPart(newType){
-        this.jetonType = newType;
-        this.hasLinedThree  = false;
-        //this.setTour(this.hasWonPart());
-        for(let i = 0; i < GamePlayer.jetonNumber; i++ ){
-            this.playerJeton[i] = newType;
-        }
-    };
-
-
-    putJetonInGame(from, to){
+    putStoneInGame(from, to){
         let result = false;
-        if(this.tour && this.opponent && this.grid.setState(to, this.jetonType)) {
+        if(this.tour && this.opponent && this.grid.setGridCellState(this.stoneType, to)) {
             this.tour = false;
-            this.playerJeton[from] = Cell.ValueEnum.EMPTY;
-            //end play
+            this.stones[from] = GridCell.ValueEnum.EMPTY;
             this.opponent.setTour(true);
             result = true;
         }
         return result;
-    };
+    }
 
-    getOpponentJeton(from, to, jeton){
+    takeOffOpponentStone(from, to, stoneType){
         let partEnded = false;
-        if(jeton !== this.jetonType
-            && this.hasLinedThree
-            && this.playerJeton[to] === Cell.ValueEnum.EMPTY) {
-            this.playerJeton[to] = jeton;
-            this.grid.setState(from,  Cell.ValueEnum.EMPTY);
-            this.hasLinedThree =false;
-            this.LinedJeton = [];
+        let result = false
+        if(stoneType === this.opponent.stoneType
+            && this.hasAlignedThree
+            && this.stones[to] === GridCell.ValueEnum.EMPTY
+            && this.grid.changeGridCellState(GridCell.ValueEnum.EMPTY, from)) {
+            this.stones[to] = stoneType;
+            this.hasAlignedThree = false;
+            this.alignedStone = [];
             this.tour = false;
+            this.earnedStone += 1
             if(this.hasWonPart()){
                 partEnded = true;
                 this.addWonPoint();
             }else {
                 this.opponent.setTour(true);
             }
+            result = true
         }
-        return partEnded
+        return [partEnded, result]
+    }
+
+    addWonPoint(){
+        if(this.opponent.point === 0) {
+            this.point += 1;
+            if(this.opponent.earnedStone ===0){
+                this.point +=1;
+            }
+        }
+        this.setTour( true );
+        this.opponent.point =0;
     };
+
+    moveStone(from, to){
+        let result = false;
+        let fromCellState = this.grid.getCellByPosition(from).state
+        if(this.tour && this.opponent && this.stoneType === fromCellState && this.grid.moveStone(from, to)){
+            if(this.grid.getCellByPosition(to).hasThirdAlignedStones()){
+                this.hasAlignedThree = true;
+                // TO BE COMPLETED
+                this.alignedStone = []
+            }else{
+                this.tour = false;
+                this.opponent.setTour(true);
+                this.alignedStone = []
+            }
+            result = true;
+
+        }
+        return result;
+    }
 
     getOutGameState(){
         let res = new Array(4);
@@ -115,7 +138,7 @@ export default class GamePlayer {
             let nb = numberRepartition[i];
             for (let j=0; j<4; j++) {
                 if (nb > 0) {
-                    res[i].push({pos:numPos, state:this.playerJeton[numPos]});
+                    res[i].push({pos:numPos, state:this.stones[numPos]});
                     numPos +=1;
                     nb -=1;
                 }
@@ -124,57 +147,33 @@ export default class GamePlayer {
         return res;
     }
 
-    addWonPoint(){
-        if(this.opponent.point === 0) {
-            this.point += 1;
-            if(this.opponent.getEarnedJon() ===0){
-                this.point +=1;
-            }
-        }
-        this.setTour( true );
-        this.opponent.point =0;
-    };
-
-    moveJeton(from, to){
-        let result = false;
-        if(this.tour && this.opponent){
-            let moveInfo = this.grid.moveState(from, to);
-            if(moveInfo.moved){
-                if(moveInfo.ThirdLined.length < 3){
-                    this.tour = false;
-                    this.opponent.setTour(true);
-                    this.LinedJeton = []
-                }else{
-                    this.hasLinedThree = true;
-                    this.LinedJeton =  moveInfo.ThirdLined
-                }
-                result = true;
-            }
-        }
-
-        return result;
-    };
-
     getPlayerInfo(){
         let result ={states: {}};
         result.states[this.id] = this.getOutGameState();
         if(this.tour){
             result.gameInfos={
-                playerTour: this.name+"(" + Cell.getStateString(this.jetonType) + ")",
-                winJeton : this.hasLinedThree,
-                linedJeton: this.LinedJeton
+                playerTour: this.name+"(" + GridCell.getStateString(this.stoneType) + ")",
+                winStone : this.hasAlignedThree,
+                alignedStone: this.alignedStone
             }
         }
         result.states.playerPoint = this.point;
         return result;
     };
 
-    isJeton(jeton){
-        return jeton === this.jetonType;
+    prepareNextPart(newType){
+        this.stoneType = newType;
+        this.hasAlignedThree  = false;
+        for(let i = 0; i < GamePlayer.stoneNumber; i++ ){
+            this.stones[i] = newType;
+        }
     };
 
     start(){
         this.IsStarted = true;
     }
+}
 
+module.exports = {
+    GamePlayer
 }

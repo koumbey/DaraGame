@@ -4,8 +4,8 @@ import Proptypes from 'prop-types'
 
 
 class GourabounDara extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.createTable = this.createTable.bind(this)
     }
 
@@ -16,8 +16,8 @@ class GourabounDara extends React.Component{
         onMouseEnter: Proptypes.func,
         gameInfos:Proptypes.shape({
             playerTour: Proptypes.string,
-            winJeton: Proptypes.bool,
-            linedJeton: Proptypes.arrayOf(Proptypes.string)
+            winStone: Proptypes.bool,
+            alignedStone: Proptypes.arrayOf(Proptypes.string)
         })
     };
 
@@ -26,18 +26,18 @@ class GourabounDara extends React.Component{
         let onDrag = this.props.onDragStart;
         let onDrop = this.props.onDrop;
         let func = this.props.onMouseEnter;
-        let linedJeton = this.props.gameInfos? this.props.gameInfos.linedJeton: []
+        let alignedStone = this.props.gameInfos? this.props.gameInfos.alignedStone: []
         return (<table key="body" style={{border: "3px solid", boxShadow: "10px 10px 8px 10px #888888"}}>
             <tbody>
             {this.props.cellsState.map(function (row, idx) {
                 return(<tr key={idx} >
                     {row.map(function (item, idy) {
                         let id = 'in-'+item.state+"-"+item.pos;
-                        let className = linedJeton.includes(item.pos) ? "third-lined": "in-game"
+                        let className = alignedStone.includes(item.pos) ? "third-lined": "in-game"
                         return(<td key={idy} style={{border: "3px solid"}}>
                             <GourbinDara
-                                jetonType={item.state}
-                                jetonId={id}
+                                stoneType={item.state}
+                                stoneId={id}
                                 onDragStart={onDrag}
                                 onDrop={onDrop}
                                 onMouseEnter={func}
@@ -56,9 +56,9 @@ class GourabounDara extends React.Component{
             <div key="head" style={{width: "100%", backgroundColor: "sandybrown", color: "white"}}>
                 <h5>Player Tour: {this.props.gameInfos.playerTour}</h5>
                 {
-                    this.props.gameInfos.winJeton
+                    this.props.gameInfos.winStone
                     && <h5 style={{color: "green"}}>
-                        {this.props.gameInfos.playerTour + " "} win jeton !
+                        {this.props.gameInfos.playerTour + " "} WIN STONE !
                     </h5>
                 }
             </div>)

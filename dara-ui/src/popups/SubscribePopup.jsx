@@ -63,7 +63,7 @@ export default class SubscribePopup extends React.Component {
                 <div>
                 <TextField
                     id="login"
-                    label="Sunan dan wasa"
+                    label="Pseudo"
                     fullWidth={true}
                     value={this.state.login}
                     onChange={value =>this.handleStateChange("login", value)}
@@ -80,7 +80,7 @@ export default class SubscribePopup extends React.Component {
                             <InputAdornment position="end">
                                 <IconButton
                                     aria-label="toggle password visibility"
-                                    onClick={value => this.setState({showPassword: value})}
+                                    onClick={()=> this.setState({showPassword: !this.state.showPassword})}
                                     onMouseDown={event => event.preventDefault()}
                                     edge="end"
                                 >
@@ -92,7 +92,7 @@ export default class SubscribePopup extends React.Component {
                 </FormControl>
                 <div style={{marginTop: "50px"}}>
                     <Button variant="contained" color="primary" onClick={this.login}>
-                        Shigar da kanka
+                        Soumettre
                     </Button>
                 </div>
             </form>

@@ -72,7 +72,7 @@ export default class PopupContainer  extends React.Component{
                         </div>
                         <div className="popup-bottom" style={{height:"50px", margin:"20px"}}>
                             <Button variant="contained" color="secondary" onClick={this.close}>
-                                Rufewa
+                                Fermer
                             </Button>
                         </div>
                     </div>

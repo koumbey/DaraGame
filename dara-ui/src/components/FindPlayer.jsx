@@ -3,8 +3,8 @@ import {DaraApi, DaraSocket} from '../server/DaraApi'
 import Proptypes from 'prop-types'
 import Button from '@material-ui/core/Button';
 import AccountCircle from "@material-ui/icons/AccountCircle"
-import Cell from "../gameRules/Cell";
-import MainGame from "../gameRules/MainGame";
+const {GridCell} = require("../gameRules/GridCell");
+const {MainGame} = require("../gameRules/MainGame");
 
 
 export default class FindPlayer extends React.Component{
@@ -45,7 +45,7 @@ export default class FindPlayer extends React.Component{
         let playerName = this.props.playerName;
         return (
             <div className="jumbotron">
-                <h3> Find player :</h3>
+                <h3> Chercher un adversaire :</h3>
             <table className="table">
                 <tbody>
                 {
@@ -77,13 +77,13 @@ export default class FindPlayer extends React.Component{
         let connectedUser = {
             name: this.props.playerName,
             start: false,
-            jeton: Cell.ValueEnum.TIGE,
+            stoneType: GridCell.ValueEnum.TIGE,
             type:MainGame.PlayerType.HUMAN
         };
         let opponent = {
             name: data.from,
             start: true,
-            jeton: Cell.ValueEnum.PIERRE,
+            stoneType: GridCell.ValueEnum.PIERRE,
             type:MainGame.PlayerType.HUMAN
         };
         this.props.callback(connectedUser, opponent)
@@ -93,13 +93,13 @@ export default class FindPlayer extends React.Component{
         let connectedUser = {
             name: this.props.playerName,
             start: true,
-            jeton: Cell.ValueEnum.PIERRE,
+            stoneType: GridCell.ValueEnum.PIERRE,
             type:MainGame.PlayerType.HUMAN
         };
         let opponent = {
             name: data.from,
             start: false,
-            jeton: Cell.ValueEnum.TIGE,
+            stoneType: GridCell.ValueEnum.TIGE,
             type:MainGame.PlayerType.HUMAN
         };
         this.props.callback(connectedUser, opponent)

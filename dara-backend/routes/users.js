@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var db = require("../database/DataBaseManagement");
-var jwt = require('jsonwebtoken');
-//var bcrypt = require('bcryptjs');
-var config = require("../config/config");
+const express = require('express');
+const router = express.Router();
+const db = require("../database/DataBaseManagement");
+const jwt = require('jsonwebtoken');
+const config = require("../config/config");
 
 
 var ConnectedUsers = {"Computer A.I" : {Pseudo: "Computer A.I"}};
@@ -44,7 +43,7 @@ router.post("/create", (req, res) =>{
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
     const [Pseudo, Password] = credentials.split(':');
     db.CreateUser(Pseudo, Password)
-        .then(rep => {
+        .then(() => {
             const token  = jwt.sign({id: Pseudo}, config.JWT_SECRET, {expiresIn: "24h"});
             ConnectedUsers[Pseudo] = {Pseudo : Pseudo};
             res.send({token: token, Pseudo: Pseudo});
@@ -60,7 +59,7 @@ router.get("/connectedUsers", (req, res) =>{
         return res.status(401).json({ message: 'Missing Authorization Header' });
     }else{
         let token = req.headers.authorization.replace('Bearer ', '');
-        jwt.verify(token, config.JWT_SECRET, (err, decode) =>{
+        jwt.verify(token, config.JWT_SECRET, (err) =>{
             if(err){
                 return res.status(401).json(err);
             }else{

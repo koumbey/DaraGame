@@ -7,17 +7,18 @@ import AccountCircle from "@material-ui/icons/AccountCircle"
 import Create from "@material-ui/icons/Create"
 import Button from '@material-ui/core/Button';
 import {GourabounDara} from "./GourabounDara";
-import Grid from "../gameRules/Grid";
 import LoginPopup from "../popups/LoginPopup";
 import FindPlayer from "./FindPlayer";
 import getStore from "../dynamicPopup/PopupStore";
-import Cell from "../gameRules/Cell";
-import MainGame from "../gameRules/MainGame";
 import {DianDara} from "./DianDara";
 import {ListItem} from "@material-ui/core";
 import Badge from "@material-ui/core/Badge";
 import {DaraSocket} from "../server/DaraApi";
 import SubscribePopup from "../popups/SubscribePopup";
+const {MainGame} = require("../gameRules/MainGame");
+const {GridCell} = require("../gameRules/GridCell");
+const {Grid} = require("../gameRules/Grid");
+
 
 class HomePage extends React.Component{
     static show = function () {
@@ -37,8 +38,8 @@ class HomePage extends React.Component{
         }
     };
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             isConnected: false,
             hasOpponent: false
@@ -49,13 +50,13 @@ class HomePage extends React.Component{
         this.onDragStart = this.onDragStart.bind(this);
         this.onDrop = this.onDrop.bind(this);
         this.onMouseEnter = this.onMouseEnter.bind(this);
-        //this.onPlayReceive = this.onPlayReceive.bind(this)
+        this.initiatePart = this.initiatePart.bind(this)
     }
 
     componentDidMount() {
         DaraSocket.subscribe("play", this.onDrop)
+        DaraSocket.subscribe("init", this.initiatePart)
     }
-
 
     onMouseEnter(pos){
         if(this.dragInfo && !(this.dragInfo.IsEmpty)) {
@@ -72,7 +73,7 @@ class HomePage extends React.Component{
         event.preventDefault();
         if(event && event.target && event.target.id) {
             let dragInfo = HomePage.getDragDropInfo(event.target.id);
-            if (dragInfo.type === this.state.player.jeton || this.gameInfo.player.hasLinedThree) {
+            if (dragInfo.type === this.state.player.stoneType || this.gameInfo.player.hasAlignedThree) {
                 this.dragInfo =  dragInfo;
                 this.dragInfo.IsEmpty = false;
             }
@@ -80,42 +81,51 @@ class HomePage extends React.Component{
     }
 
     onDrop(event){
+        let isPlayed = false;
         if(event && event.target && event.target.id && this.dragInfo && !this.dragInfo.IsEmpty) {
             let dropInfo = HomePage.getDragDropInfo(event.target.id);
-            this.gameInfo.playGame(this.dragInfo, dropInfo);
-            DaraSocket.send(JSON.stringify({to:this.state.opponent.name, action:[this.dragInfo, dropInfo], topic: "play"}))
+            isPlayed = this.gameInfo.playGame(this.dragInfo, dropInfo);
+            if (isPlayed) DaraSocket.send(JSON.stringify({to:this.state.opponent.name, action:[this.dragInfo, dropInfo], topic: "play"}))
 
         }else if (event && event.action){
             let action = event.action;
-            this.gameInfo.playGame(action[0], action[1]);
+            isPlayed = this.gameInfo.playGame(action[0], action[1]);
         }
+        if (isPlayed) {
+            let updateState = this.gameInfo.getGameStates();
+            if (this.gameInfo.isPartEnded()) {
+                let winner = this.gameInfo.getWinner();
+                console.log("Game ended. \nPlayer " + winner.name + " win !!!");
+                this.initiatePart();
+                DaraSocket.send(JSON.stringify({to: this.state.opponent.name, topic: "init"}))
+            }
+            this.dragInfo = {IsEmpty: true};
+            this.setState(updateState);
+        }
+    }
+
+    initiatePart() {
         let updateState = this.gameInfo.getGameStates();
-        if(this.gameInfo.isPartEnded()){
-            let winner = this.gameInfo.getWinner();
-            console.log("Game ended. \nPlayer "+ winner.name + " win !!!");
-            this.gameInfo.initialiseGameInfo();
-            let player =  this.state.player;
-            player.jeton =  this.gameInfo.getPlayerJeton(player.name);
-            let opponent =  this.state.opponent;
-            opponent.jeton =  this.gameInfo.getPlayerJeton(opponent.name);
-            updateState.player = player;
-            updateState.opponent = opponent;
-        }
-        this.dragInfo = {IsEmpty: true};
-        this.setState(updateState);
+        this.gameInfo.initialiseGameInfo();
+        let player = this.state.player;
+        player.stoneType = this.gameInfo.getPlayerStoneByName(player.name);
+        let opponent = this.state.opponent;
+        opponent.stoneType = this.gameInfo.getPlayerStoneByName(opponent.name);
+        updateState.player = player;
+        updateState.opponent = opponent;
     }
 
     afterLogin(data){
         let connectedUser = {
             name: data.Pseudo,
             start: true,
-            jeton: Cell.ValueEnum.PIERRE,
+            stoneType: GridCell.ValueEnum.PIERRE,
             type:MainGame.PlayerType.HUMAN
         };
         let opponent = {
             name: "?",
             start: false,
-            jeton: Cell.ValueEnum.TIGE,
+            stoneType: GridCell.ValueEnum.TIGE,
             type:MainGame.PlayerType.HUMAN
         };
         this.gameInfo = new MainGame(connectedUser, opponent);
@@ -143,20 +153,9 @@ class HomePage extends React.Component{
 
     rendUser(){
         if (this.state.isConnected && this.state.hasOpponent){
-            let players = this.state.player.start? [this.state.player.name, this.state.opponent.name]: [this.state.opponent.name, this.state.player.name];
-            let firstPlayerInfo = this.gameInfo.getPlayerIdAndPoint(players[0]);
-            let secondPlayerInfo = this.gameInfo.getPlayerIdAndPoint(players[1]);
+            let player = this.gameInfo.player
             return <div style={{marginRight: "5%", marginLeft: "5%"}}>
                 <div className={"row"}>
-                    <div className={"col-lg-3"}>
-                        <DianDara
-                            cellsState={this.state[firstPlayerInfo.id]}
-                            onDrop={this.onDrop}
-                            onDragStart={this.onDragStart}
-                            playerName={players[0]}
-                            playerPoint={firstPlayerInfo.point}
-                        />
-                    </div>
                     <div className={"col-lg-6 square-box"}>
                         <GourabounDara
                             cellsState={this.state.gridStates}
@@ -165,18 +164,22 @@ class HomePage extends React.Component{
                             onMouseEnter={this.onMouseEnter}
                             gameInfos={{
                                 playerTour:this.state.playerTour,
-                                winJeton:this.state.winJeton,
-                                linedJeton:this.state.linedJeton
+                                winStone:this.state.winStone,
+                                alignedStone:this.state.alignedStone
                             }}
                         />
                     </div>
                     <div className={"col-lg-3"}>
                         <DianDara
-                            cellsState={this.state[secondPlayerInfo.id]}
+                            cellsState={this.state[player.id]}
                             onDrop={this.onDrop}
                             onDragStart={this.onDragStart}
-                            playerName={players[1]}
-                            playerPoint={secondPlayerInfo.point}
+                            player={{
+                              name:player.name,
+                              tour:player.tour,
+                              point: player.point,
+                              ...player.getGameStonesInfos()
+                            }}
                         />
                     </div>
                 </div>
@@ -215,8 +218,8 @@ class HomePage extends React.Component{
                             onMouseEnter={this.onMouseEnter}
                             gameInfos={{
                                 playerTour:this.state.playerTour,
-                                winJeton:this.state.winJeton,
-                                linedJeton:this.state.linedJeton
+                                winStone:this.state.winStone,
+                                alignedStone:this.state.alignedStone
                             }}
                         />
                     </div>
@@ -233,34 +236,40 @@ class HomePage extends React.Component{
         let cellState = (new Grid()).getAllStates();
         if (!this.state.isConnected) {
             return (<div className="container jumbotron">
-                <h1 style={{textAlign: "center"}}>Carin wasa dara jera uku</h1>
-                <p>Wasa dara jera uku, wasa ce wadda ake bugawa cakanin dan wasa biyu.
-                    Kamin fara wasan ana buƙata ɗiyan dara, da gidaje dara.
-                    Kowane dan wasa yana buƙata ɗiyan dara goma shabiyu (12).
-                    Dan wasa guda yana iya dara da ɗiyan duwacuna, ko ɗiyan goriba, ko kuma
-                    wanansu abubuwa makamanta.
-                    Abokin wasa shi yana iya dara da guntawyan kara haci, ko ɗiyan korkoron zaran
-                    ɗumki, ko kuma abubuwa makamanta.
-                    Gidajan dara gurabu talatin ne (30) a care, layi biyar har so shida (5x6).
+                <h1 style={{textAlign: "center"}}>LE JEU D'ALIGNEMENT DE TROIS PIONS</h1>
+                <p>Le jeu d'alignement de trois pions est un jeu qui se joue à deux.
+                    Chaque joueur possède au depart 12 pions. Le jeu se joue en deux phases:
                 </p>
-                <div> A cikin wanan wasa na na-ura mai ƙwaƙwalwa ko waya zamani, Ana anfami da
-                    duwacuna babbaƙu kamar haka : <br/>
-                    <div style={{textAlign: "center"}}>
-                        <img src={pierre} alt="duci" style={{height: "100px", width: "100px"}}/> <br/>
-                    </div>
-                    dan kamanta duwacuna. <br/>
-                    Da kuma ɗiyan korkoro ɗanyan cawa kamar haka: <br/>
-                    <div style={{textAlign: "center"}}>
-                        <img src={tige} alt="korkwaro" style={{height: "100px", width: "100px"}}/>
-                    </div>
+                <p>
+                    <strong> - La phase placement. </strong>
+                    Pendant cette phase, les joueurs placent tour à tour les pions (un à fois) sur un plateau de jeu
+                    compose de 30 cases (5 lignes x 6 colonnes). Les joueurs n'ont le droit d'aligner trois (3) pions que ce soit
+                    en ligne ou en colonne.
+                </p>
+                <p>
+                    <strong>- La phase de deplacement </strong>
+                    Une fois placement terminé, les joueurs deplace tour à tour leurs pions. le but de deplacement est d'aligner trois pions
+                    (alignement en ligne ou en colonne, pas en diagonal). Lorsqu'un joueur arrive à aligner trois de ses pions, il récupère
+                    un pion au choix de son adversaire.
+                </p>
+                <p>
+                    Le jeu se termine lorsqu'un des joueur abondonne ou n'a plus de pion. Ce dernier la parties.
+                    Le joueur gagnant à: <br/>
+                    <strong> - 1 point </strong> s'il a perdu au moins un de ses pions lors de la partie<br/>
+                    <strong>- 2 points </strong> s'il n'a perdu aucun de ses pions.<br/>
+                </p>
+                <div>
+                    <h1 style={{textAlign: "center"}}>Les pions du jeu </h1>
+                    <img src={pierre} alt="duci" style={{height: "100px", width: "100px"}}/> <br/>
+                    <img src={tige} alt="korkwaro" style={{height: "100px", width: "100px"}}/>
                 </div>
                 <div>
-                    Gurabu dara kuma mu anfani da griyaji mai gida talatin (30) kamar haka:
+                    <h1 style={{textAlign: "center"}}>Le plateau du jeu</h1>
                     <div style={{textAlign: "center", marginLeft: "250px", marginTop: "10px", Height: "100px"}}>
                         <GourabounDara cellsState={cellState}/>
                     </div>
                 </div>
-                <h1 style={{textAlign: "center"}}>Sharuɗɗan Wasa</h1>
+
             </div>)
         }
     }
@@ -282,11 +291,11 @@ class HomePage extends React.Component{
                     <div className="col-lg-5">
                         <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"1vw", marginRight: "1vw" , marginTop: "0.5vw"}}
                         onClick={() => LoginPopup.show(this.afterLogin, null)}>
-                            <AccountCircle style={{fontSize:"2vw"}}/> { this.state.isConnected? this.state.player.name:"Shigadda kanka"}
+                            <AccountCircle style={{fontSize:"2vw"}}/> { this.state.isConnected? this.state.player.name:"se connecter"}
                         </Button>
                         <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"0.5vw", marginRight: "1vw" , marginTop: "0.5vw"}}
                         onClick={()=>SubscribePopup.show(this.afterLogin, null)}>
-                            <Create style={{fontSize:"2vw"}}/> Sabon Dan wasa
+                            <Create style={{fontSize:"2vw"}}/> Créer un compte
                         </Button>
                     </div>
                 </div>

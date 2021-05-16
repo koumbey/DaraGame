@@ -50,7 +50,7 @@ export default class LoginPopup extends React.Component {
                 <div>
                 <TextField
                     id="login"
-                    label="Sunan dan wasa"
+                    label="Pseudo"
                     fullWidth={true}
                     value={this.state.login}
                     onChange={value =>this.handleStateChange("login", value)}
@@ -59,7 +59,7 @@ export default class LoginPopup extends React.Component {
                 <div>
                 <TextField
                     id="password"
-                    label="Kalmonin sirri"
+                    label="Mot de passe"
                     fullWidth={true}
                     type="password"
                     value={this.state.password}
@@ -68,11 +68,10 @@ export default class LoginPopup extends React.Component {
                 </div>
                 <div style={{marginTop: "50px"}}>
                     <Button variant="contained" color="primary" onClick={this.login}>
-                        Shigar da kanka
+                        Soumettre
                     </Button>
                 </div>
             </form>
-            <div>{this.state.signUpMessage}</div>
         </div>
     }
     static show = function (callback, afterClose) {
