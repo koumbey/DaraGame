@@ -51,7 +51,7 @@ wss.on('connection', function connection(ws) {
 
     console.log(`received: ${message}`);
 
-    let data =JSON.parse(message);
+    let data = JSON.parse(message);
     if(data.joinUser) // joindre le tableau des users en envoyant son userId
     {
       //message attendu : {joinUser: userId}
@@ -65,7 +65,7 @@ wss.on('connection', function connection(ws) {
   });
 
   ws.on('error',function(e){ return console.log(e);});
-  ws.on('close',function(e){ return console.log('websocket closed'+e);});
+  ws.on('close',function(e){ return console.log('websocket closed: '+e);});
 });
 
 

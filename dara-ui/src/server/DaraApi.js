@@ -18,7 +18,8 @@ const DaraSocket = {
    },
     send :  function (data) {
         socket.send(data)
-    }
+    },
+    isOpen: false
 };
 
 socket.onmessage = function (ev) {
@@ -31,6 +32,11 @@ socket.onmessage = function (ev) {
         }
     }
 };
+
+socket.onclose =  function (){
+    DaraSocket.isOpen = true
+}
+
 
 export {
     DaraApi,

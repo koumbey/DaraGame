@@ -7,6 +7,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle"
 import Create from "@material-ui/icons/Create"
 import Button from '@material-ui/core/Button';
 import {GourabounDara} from "./GourabounDara";
+import EndPartyPopup from "../popups/EndPartiePopup";
 import LoginPopup from "../popups/LoginPopup";
 import FindPlayer from "./FindPlayer";
 import getStore from "../dynamicPopup/PopupStore";
@@ -95,8 +96,10 @@ class HomePage extends React.Component{
             let updateState = this.gameInfo.getGameStates();
             if (this.gameInfo.isPartEnded()) {
                 let winner = this.gameInfo.getWinner();
-                console.log("Game ended. \nPlayer " + winner.name + " win !!!");
-                this.initiatePart();
+                EndPartyPopup.show(
+                    {name:this.gameInfo.player.name, IsWinner: this.gameInfo.player.IsWinner},
+                    this.initiatePart
+                )
                 DaraSocket.send(JSON.stringify({to: this.state.opponent.name, topic: "init"}))
             }
             this.dragInfo = {IsEmpty: true};
