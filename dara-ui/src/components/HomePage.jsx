@@ -199,17 +199,17 @@ class HomePage extends React.Component{
                         <div className="jumbotron">
                             <ListItem>
                                 <h5>
-                                    <img style={{height:"30px"}} src={logo} className="App-logo" alt="logo"/>
+                                    <img src={logo} className="App-logo" alt="logo"/>
                                     {" " + this.state.player.name + " "}
-                                    <img style={{height:"30px"}} src={logo} className="App-logo" alt="logo"/>
+                                    <img src={logo} className="App-logo" alt="logo"/>
                                 </h5>
                             </ListItem>
                             <ListItem>
-                                <img style={{height:"30px"}} src={logo} className="App-logo" alt="logo"/>
+                                <img src={logo} className="App-logo" alt="logo"/>
                                 <Badge badgeContent={this.state.playerPoint} showZero={true} color="secondary">
                                     <h5><span> Point </span></h5>
                                 </Badge>
-                                <img style={{height:"30px", marginLeft:"1%"}} src={logo} className="App-logo" alt="logo"/>
+                                <img style={{marginLeft:"1%"}} src={logo} className="App-logo" alt="logo"/>
                             </ListItem>
                         </div>
                     </div>
@@ -280,25 +280,22 @@ class HomePage extends React.Component{
     render(){
         return <div className="homepage">
             <AppBar position="static" style={{backgroundColor: "green"}}>
-                <div className="row">
+                <div className="row" >
                     <div className="col-lg-3">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <img src={logo} className="App-logo" alt="logo"/>
                     </div>
                     <div className="col-lg-4">
-                        <span  style={{fontSize: "2vw", fontWeight: "bold" , marginLeft:"1vw", marginRight: "1vw" , marginTop: "1vw"}}>
+                        <span  style={{fontWeight: "bold", justify: "center" }}>
                             WASAN DARA HAUSAWA
                         </span>
                     </div>
                     <div className="col-lg-5">
-                        <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"1vw", marginRight: "1vw" , marginTop: "0.5vw"}}
+                        <Button style={{color:"white"}}
                         onClick={() => LoginPopup.show(this.afterLogin, null)}>
-                            <AccountCircle style={{fontSize:"2vw"}}/> { this.state.isConnected? this.state.player.name:"se connecter"}
+                            <AccountCircle/> { this.state.isConnected? this.state.player.name:"se connecter"}
                         </Button>
-                        <Button style={{color:"white",fontSize: "1vw", fontWeight: "bold" , marginLeft:"0.5vw", marginRight: "1vw" , marginTop: "0.5vw"}}
+                        <Button style={{color:"white"}}
                         onClick={()=>SubscribePopup.show(this.afterLogin, null)}>
-                            <Create style={{fontSize:"2vw"}}/> Créer un compte
+                            <Create/> Créer un compte
                         </Button>
                     </div>
                 </div>

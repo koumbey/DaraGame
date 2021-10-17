@@ -4,13 +4,8 @@ App {
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height:3vw
 }
 
-.App-header {
-  height: 5vw;
-  padding: 0.2vw;
-}
 
 .App-title {
   font-size: 1.5em;
