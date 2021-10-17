@@ -18,7 +18,9 @@ class GourbinDara extends React.Component{
         onDragStart: Proptypes.func,
         onDrop: Proptypes.func,
         onMouseEnter: Proptypes.func,
-        stateClassName :Proptypes.string.isRequired
+        stateClassName :Proptypes.string.isRequired,
+        col: Proptypes.number,
+        row: Proptypes.number
     };
 
 
@@ -65,6 +67,7 @@ class GourbinDara extends React.Component{
                  onDrop={this.handleDrop}
                  onDragOver={this.handleMouseEnter}
                  onDragLeave={this.onDragLeave}
+                 style={{"grid-column": this.props.col, "grid-row": this.props.row}}
             >
                 {Logo &&
                 <img

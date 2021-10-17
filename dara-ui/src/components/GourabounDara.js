@@ -27,14 +27,22 @@ class GourabounDara extends React.Component{
         let onDrop = this.props.onDrop;
         let func = this.props.onMouseEnter;
         let alignedStone = this.props.gameInfos? this.props.gameInfos.alignedStone: []
-        return (<table key="body" style={{border: "3px solid", boxShadow: "10px 10px 8px 10px #888888"}}>
-            <tbody>
+        let gridStyle = {
+            border: "3px solid",
+            boxShadow: "10px 10px 8px 10px #888888",
+            display: "grid",
+            "grid-template-columns": "repeat(6, 16.45%)",
+            "grid-auto-rows": "minmax(6.5vw, auto)",
+            "column-gap": "2px",
+            "row-gap": "2px",
+        }
+        return (<div key="body" style={gridStyle}>
+
             {this.props.cellsState.map(function (row, idx) {
-                return(<tr key={idx} >
-                    {row.map(function (item, idy) {
+                return(row.map(function (item, idy) {
                         let id = 'in-'+item.state+"-"+item.pos;
                         let className = alignedStone.includes(item.pos) ? "third-lined": "in-game"
-                        return(<td key={idy} style={{border: "3px solid"}}>
+                        return(
                             <GourbinDara
                                 stoneType={item.state}
                                 stoneId={id}
@@ -42,13 +50,14 @@ class GourabounDara extends React.Component{
                                 onDrop={onDrop}
                                 onMouseEnter={func}
                                 stateClassName={className}
+                                col={idy}
+                                row={idx}
                             />
-                        </td>)
-                    })}
-                </tr>)
+                        )
+                    })
+                )
             })}
-            </tbody>
-        </table>)
+        </div>)
     }
 
     render_player(){

@@ -97,7 +97,7 @@ class HomePage extends React.Component{
             if (this.gameInfo.isPartEnded()) {
                 let winner = this.gameInfo.getWinner();
                 EndPartyPopup.show(
-                    {name:this.gameInfo.player.name, IsWinner: this.gameInfo.player.IsWinner},
+                    {name:this.gameInfo.player.name, IsWinner: winner},
                     this.initiatePart
                 )
                 DaraSocket.send(JSON.stringify({to: this.state.opponent.name, topic: "init"}))

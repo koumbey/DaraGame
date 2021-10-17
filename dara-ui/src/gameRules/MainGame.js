@@ -148,9 +148,9 @@ class MainGame {
 
     IsChangePossible(dragInfo, dropPos){
         if(this.grid.isFilled){
-            return this.grid.cellArray[dropPos].canStateBeSet(dragInfo.type);
-        }else{
             return this.grid.cellArray[dropPos].canStateBeChanged(dragInfo.type);
+        }else{
+            return this.grid.cellArray[dropPos].canStateBeSet(dragInfo.type);
         }
     }
 

@@ -1,8 +1,7 @@
 import getStore from '../dynamicPopup/PopupStore'
 import React from 'react'
-import {TextField, Button} from "@material-ui/core";
-import {DaraApi, DaraSocket} from '../server/DaraApi'
-import base64 from 'base-64'
+import {Button} from "@material-ui/core";
+
 import Proptypes from 'prop-types'
 
 
@@ -23,22 +22,29 @@ export default class EndPartyPopup extends React.Component {
     constructor(props){
         super(props);
         this.state = {};
+        this.initiateGame.bind(this)
+    }
+
+    initiateGame(){
+        this.props.initiateGame()
+        let popup_store = getStore();
+        popup_store.close(EndPartyPopup.popupDefinition.key)
     }
 
     render() {
-        let message = "Vous avez " + (this.props.player.isWinner? "gagné": "perdu") + "la partie"
+        let message = "Vous avez " + (this.props.player.isWinner? "gagné": "perdu") + " la partie"
         let color = this.props.player.isWinner?"red":"green"
         return <div>
             <div key="head" style={{width: "100%", backgroundColor: color, color: "white"}}>
                 <h5>{message}</h5>
             </div>
             <div style={{marginTop: "50px"}}>
-                <Button variant="contained" color="primary" onClick={this.props.initiateGame}>
+                <Button variant="contained" color="primary" onClick={this.initiateGame}>
                     Refaire une nouvelle partie
                 </Button>
             </div>
             <div style={{marginTop: "50px"}}>
-                <Button variant="contained" color="secondary" onClick={}>
+                <Button variant="contained" color="secondary">
                     Arrêter
                 </Button>
             </div>

@@ -21,21 +21,15 @@ App {
 }
 
 .not-allowed{
-  width:6.5vw;
-  height:6.5vw;
   border:3px solid red;
   background: darkred;
 }
 .allowed{
-  width:6.5vw;
-  height:6.5vw;
   border:3px solid greenyellow;
   background: white;
 }
 
 .in-game{;
-  width:6.5vw;
-  height:6.5vw;
   border:3px solid;
   background: repeating-linear-gradient(-45deg, beige, sandybrown);
 }
